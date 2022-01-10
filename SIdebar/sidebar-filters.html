@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Test 1</title>
+        <link rel="stylesheet" href="sidebar-styles.css">
+    </head>
+
+    <body>
+        <h1>Hello World</h1>
+
+        <aside>
+            <h3> Filter Options </h3>
+            <h4> Show</h4>
+            <form>
+                <input type="checkbox" id="box1" value="PubNr">
+                <label for="box1"> Publication number</label><br>
+                <input type="checkbox" id="box2" value="title">
+                <label for="box2"> Title</label><br>
+                <input type="checkbox" id="box3" value="inventor">
+                <label for="box3"> Inventor</label><br>
+                <input type="checkbox" id="box4" value="year">
+                <label for="box4"> Year</label><br>
+                <input type="checkbox" id="box5" value="picture">
+                <label for="box5"> Picture</label><br>
+                <input type="checkbox" id="box6" value="similarity to query">
+                <label for="box6"> Similarity to query</label><br><br>
+                <input type="submit" value="Submit">
+              </form>
+
+
+            <h4>Publication Date</h4>
+            <br>
+            <div class="slidecontainer">
+                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+              </div>
+            <br>
+            
+            <input type="submit" value="Reset filters">
+        
+              
+        </aside>
+    </body>
+</html>
