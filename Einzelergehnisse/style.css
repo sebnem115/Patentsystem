@@ -1,0 +1,362 @@
+:root {
+    --basis: #dfe3e5;
+    --buttongrey: #b2b5b7;
+    --shadow:#6f7172;
+    --white: #fbfcfc;
+    --textcolor: #161616;
+}
+
+h1 {
+	font-family: 'Roboto';
+}
+
+p {
+	color: var(--textcolor);
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto', sans-serif;
+}
+
+body { 
+	background-color: var(--basis);
+	margin: 0 auto;
+	padding:0;
+	position:absolute;
+	overflow:hidden;
+	left:0;
+	right:0;
+	top:2.5%;
+	bottom:2.5%;
+	color: var(--textcolor) ;
+	font-family: 'Roboto';
+}
+
+.button {
+	box-sizing: border-box;
+	background-color: var(--buttongrey);
+	text-align: center;
+	cursor: pointer;
+	border-radius: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 2px 2px 5px var(--shadow);  
+}
+
+a { text-decoration: none; 
+	color: black;
+	}
+
+.pwrapper {
+	max-width: 1500px;
+	width: 100%;
+	height: 100%;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: var(--white);
+}
+
+.pwrapper .header_wrapper {
+	height: 27%;
+	opacity: 1;
+}
+
+
+.pwrapper .header {
+	background-color: var(--white);
+	height: 33%;
+	width: 100%;
+	display: flex;
+    align-items: stretch;
+}
+
+.pwrapper .header .left{
+	height: 100%;
+	width: 61.8%;
+
+}
+
+.pwrapper .header .right{
+	height: 100%;
+	width: 38.2%;
+	display: flex;
+    align-items: stretch; 
+}
+
+.pwrapper .header .right .padder{
+	display: flex;
+    align-items: stretch;
+	height: 100%;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 4%;
+	column-gap: 2%;
+}
+
+.pwrapper .header .right .button{
+	width: 50%;
+}
+
+.pwrapper .hmenu{
+	background-color: var(--basis);
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    height: 33%;
+    padding: 5px;
+    box-sizing: border-box;
+    column-gap: 1%;
+}
+
+.pwrapper .hmenu .button{	
+  	width: 12.5%;
+}
+
+.pwrapper .desc{
+	background-color: var(--basis);
+	display: flex;
+	align-items: stretch;
+	width: 100%;
+	height: 33%;
+	column-gap: 3%;
+}
+
+.pwrapper .desc .padder{
+	padding: 1.5%;
+	height:  100%;
+ 	width: 5%;
+ 	display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+#bookmark {cursor: pointer;
+}
+
+.pwrapper .desc .padder .bookmark{
+ 	height:  120%;
+ 	width: 100%;
+	box-sizing: border-box;
+	background-image: url( images/bookmark_uncheck.png);
+	background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.pwrapper .desc .padder .bookmark.check{
+	background-image: url( images/bookmark_check.png);
+}
+
+.pwrapper .desc .description{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.pwrapper .content {
+	height: 73% !important;
+	width: 100%;
+	padding-left: 5%;
+	padding-right: 5%;
+	box-sizing: border-box;
+	overflow: scroll;
+	scroll-behavior: smooth;
+}
+
+.pwrapper .content .bibliographic_data{
+	box-sizing: border-box;
+	width: 100%;
+	display: flex;
+	align-items: stretch;
+	padding-bottom: 5%;
+}
+
+.pwrapper .content .bibliographic_data .left{
+	width: 38.2%;
+	display: flex;
+	align-items: stretch;
+	line-height: 1.42857;
+}
+
+.pwrapper .content .bibliographic_data .right{
+	width: 61.8%;
+
+}
+
+.pwrapper .content .bibliographic_data .left .left_content{
+	width: 38.2%;	
+}
+
+.pwrapper .content .bibliographic_data .left .right_content{
+	width: 61.8%;
+}
+
+.pwrapper .content .description{
+	display: flex;
+	align-items: stretch;
+	height: 100%;
+	width: 100%;
+}
+
+.pwrapper .content .description .left{
+	height: 100%;
+	width: 61.8%;
+	overflow: scroll;
+}
+
+.pwrapper .content .description .left .padder{
+	height: 100%;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.pwrapper .content .description .right{
+	width: 38.2%;
+
+}
+
+.pwrapper .content .description .right .top{
+	height: 100%;
+	width: 100%;
+	background-image: url(images/1.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.pwrapper .content .drawings {
+	width: 100%;
+}
+
+.pwrapper .content .drawings .row1, .row2, .row3 {
+	width: 100%;
+	display: flex;
+	column-gap: 1%;
+	margin-top: 1%;
+	justify-content: space-between;
+}
+.pwrapper .content .drawings .first:hover, .second:hover, .third:hover , .four:hover{
+	box-shadow: 2px 2px 5px var(--shadow);  
+}
+
+.tooltiptext {
+  display: table;
+  margin: 0 auto;
+  margin-top: -15px;
+  visibility: invisible;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 5px;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltiptext::after {
+  content: "";
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.first:hover .tooltiptext, .second:hover .tooltiptext, .third:hover .tooltiptext, .four:hover .tooltiptext  {
+  visibility: visible;
+  opacity: 1;
+}
+.pwrapper .content .drawings .first{
+	cursor: pointer;
+	height: 400px;
+	width: 25%;
+}
+
+.pwrapper .content .drawings .second{
+	cursor: pointer;
+	height: 400px;
+	width: 25%;
+}
+
+.pwrapper .content .drawings .third{
+	cursor: pointer;
+	height: 400px;
+	width: 25%;
+}
+
+.pwrapper .content .drawings .four{
+	cursor: pointer;
+	height: 400px;
+	width: 25%;
+}
+
+.pwrapper .content .drawings .row1 .first{
+	background-image: url(images/1.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.pwrapper .content .drawings .row1 .second{
+	background-image: url(images/2.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.pwrapper .content .drawings .row1 .third{
+	background-image: url(images/3.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.pwrapper .content .drawings .row1 .four{
+	background-image: url(images/4.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.pwrapper .content .drawings .row2 .first{
+	background-image: url(images/5.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.pwrapper .content .drawings .row2 .second{
+	background-image: url(images/6.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.pwrapper .content .drawings .row2 .third{
+	background-image: url(images/7.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.pwrapper .content .drawings .row2 .four{
+	background-image: url(images/8.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.pwrapper .content .drawings .row3 .first{
+	background-image: url(images/9.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.pwrapper .content .drawings .row3 .second{
+	background-image: url(images/10.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.pwrapper .content .drawings .row3 .third{
+	background-image: url(images/11.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.pwrapper .content .drawings .row3 .four{
+	background-image: url(images/12.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
