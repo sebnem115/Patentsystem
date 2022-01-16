@@ -7,12 +7,12 @@
 }
 
 #homebutton-link {
-    color: white;
+    color: black;
     text-decoration: none;
 }
 
 #homebutton {
-    background-color: #455463;
+    background-color: #b2b5b7;
     height: 80px;
     width: 80px;
     border-radius: 100%;
@@ -32,13 +32,13 @@
 }
 
 .dropbtn {
-    background-color: #455463;
-    color: white;
+    background-color: #b2b5b7;
+    color: black;
     padding: 16px;
     font-size: 16px;
     border: none;
     cursor: pointer;
-    border-radius: 5%;
+    border-radius: 16px;
   }
   
   .dropdown {
@@ -49,10 +49,10 @@
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    background: rgba(69, 84, 99, 0.75);
+    box-shadow: 0px 4px 4px rgba(111, 113, 114, 0.5);
+    border-radius: 12px;
+    min-width: 100%;
   }
 
   .login-mask {
