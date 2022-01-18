@@ -360,3 +360,13 @@ a { text-decoration: none;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
+
+.legal_table th, td {
+	padding: 15px;
+	border-bottom: 1px solid black;
+	text-align: left;	
+}
+
+table {
+	border-collapse: collapse;
+}
