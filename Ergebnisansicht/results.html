@@ -2,6 +2,8 @@
 <html lang="de">
   <head>
     <link rel="stylesheet" href="results-styles.css">
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="javascript.js?v=1"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Titel</title>
@@ -50,55 +52,58 @@
                     <option value="" >List 2</option>
                     <option value="" >All results</option>
                 </select>
-                <select id="sort-by">
+                <select id="sort-by" onchange="sortTable()">
                     <option value="" disabled selected>Sort by</option>
-                    <option value="" >Relevance</option>
-                    <option value="" >🠕 Publication date</option>
-                    <option value="" >🠗 Publication date</option>
+                    <option value="relevance" >Relevance</option>
+                    <option value="ascending" >🠕 Publication date</option>
+                    <option value="descending" >🠗 Publication date</option>
                 </select>
             </div>
         </div>
         <div class="result-display-container">
-            <table class="results-table">
+            <table id="results-table" class="results-table">
+              <thead>
                 <tr>
                   <th></th>
-                  <th>No.</th>
+                  <th>Relevance</th>
                   <th>Publication number</th>
                   <th>Title</th>
                   <th>Year</th>
                   <th>Inventor</th>
                   <th>Picture</th>
                 </tr>
+              </thead>
+              <tbody>
                 <tr>
-                  <td><input type="checkbox" id="select-result-1"></td>
-                  <td><span>1. 82%</span></td>
+                  <td><input type="checkbox" class="select-result"></td>
+                  <td>82%</td>
                   <td>18395602938597604</td>
                   <td>EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
-                  <td>2012</td>
+                  <td>2020</td>
                   <td>EP</td>
                   <td></td>
                 </tr>
                 <tr>
-                  <td><input type="checkbox" id="select-result-1"></td>
-                  <td><span>2. 76%</span></td>
+                  <td><input type="checkbox" class="select-result"></td>
+                  <td>100%</td>
                   <td>18395602938597604r</td>
                   <td>EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
-                  <td>2012</td>
+                  <td>2009</td>
                   <td>EP</td>
                   <td></td>
                 </tr>
                  <tr>
-                  <td><input type="checkbox" id="select-result-1"></td>
-                  <td><span>3. 74%</span></td>
+                  <td><input type="checkbox" class="select-result"></td>
+                  <td>74%</td>
                   <td>18395602938597604</td>
                   <td>EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
-                  <td>2012</td>
+                  <td>2008</td>
                   <td>EP</td>
                   <td></td>
                 </tr>
                  <tr>
-                  <td><input type="checkbox" id="select-result-1"></td>
-                  <td><span>4. 68%</span></td>
+                  <td><input type="checkbox" class="select-result"></td>
+                  <td>0%</td>
                   <td>18395602938597604</td>
                   <td>EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
                   <td>2012</td>
@@ -106,8 +111,8 @@
                   <td></td>
                 </tr>
                 <tr>
-                 <td><input type="checkbox" id="select-result-1"></td>
-                 <td><span>4. 65%</span></td>
+                 <td><input type="checkbox" class="select-result"></td>
+                 <td>65%</td>
                  <td>18395602938597604</td>
                  <td>EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
                  <td>2012</td>
@@ -115,8 +120,8 @@
                  <td></td>
                </tr>
                <tr>
-                 <td><input type="checkbox" id="select-result-1"></td>
-                 <td><span>1. 82%</span></td>
+                 <td><input type="checkbox" class="select-result"></td>
+                 <td>82%</td>
                  <td>18395602938597604</td>
                  <td>EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
                  <td>2012</td>
@@ -124,26 +129,26 @@
                  <td></td>
                </tr>
                <tr>
-                 <td><input type="checkbox" id="select-result-1"></td>
-                 <td><span>2. 76%</span></td>
+                 <td><input type="checkbox" class="select-result"></td>
+                 <td>76%</td>
                  <td>18395602938597604r</td>
                  <td>EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
-                 <td>2012</td>
+                 <td>2022</td>
                  <td>EP</td>
                  <td></td>
                </tr>
                 <tr>
-                 <td><input type="checkbox" id="select-result-1"></td>
-                 <td><span>3. 74%</span></td>
+                 <td><input type="checkbox" class="select-result"></td>
+                 <td>74%</td>
                  <td>18395602938597604</td>
                  <td>EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
-                 <td>2012</td>
+                 <td>2018</td>
                  <td>EP</td>
                  <td></td>
                </tr>
                 <tr>
-                 <td><input type="checkbox" id="select-result-1"></td>
-                 <td><span>4. 68%</span></td>
+                 <td><input type="checkbox" class="select-result"></td>
+                 <td>68%</td>
                  <td>18395602938597604</td>
                  <td>EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
                  <td>2012</td>
@@ -151,8 +156,17 @@
                  <td></td>
                </tr>
                <tr>
-                <td><input type="checkbox" id="select-result-1"></td>
-                <td><span>4. 65%</span></td>
+                <td><input type="checkbox" class="select-result"></td>
+                <td>65%</td>
+                <td>18395602938597604</td>
+                <td>EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
+                <td>2021</td>
+                <td>EP</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="select-result"></td>
+                <td>82%</td>
                 <td>18395602938597604</td>
                 <td>EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
                 <td>2012</td>
@@ -160,17 +174,8 @@
                 <td></td>
               </tr>
               <tr>
-                <td><input type="checkbox" id="select-result-1"></td>
-                <td><span>1. 82%</span></td>
-                <td>18395602938597604</td>
-                <td>EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
-                <td>2012</td>
-                <td>EP</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td><input type="checkbox" id="select-result-1"></td>
-                <td><span>2. 76%</span></td>
+                <td><input type="checkbox" class="select-result"></td>
+                <td>76%</td>
                 <td>18395602938597604r</td>
                 <td>EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
                 <td>2012</td>
@@ -178,8 +183,8 @@
                 <td></td>
               </tr>
                <tr>
-                <td><input type="checkbox" id="select-result-1"></td>
-                <td><span>3. 74%</span></td>
+                <td><input type="checkbox" class="select-result"></td>
+                <td>74%</td>
                 <td>18395602938597604</td>
                 <td>EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
                 <td>2012</td>
@@ -187,8 +192,8 @@
                 <td></td>
               </tr>
                <tr>
-                <td><input type="checkbox" id="select-result-1"></td>
-                <td><span>4. 68%</span></td>
+                <td><input type="checkbox" class="select-result"></td>
+                <td>68%</td>
                 <td>18395602938597604</td>
                 <td>EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
                 <td>2012</td>
@@ -196,8 +201,8 @@
                 <td></td>
               </tr>
               <tr>
-               <td><input type="checkbox" id="select-result-1"></td>
-               <td><span>4. 65%</span></td>
+               <td><input type="checkbox" class="select-result"></td>
+               <td>65%</td>
                <td>18395602938597604</td>
                <td>EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
                <td>2012</td>
@@ -205,8 +210,8 @@
                <td></td>
              </tr>
              <tr>
-               <td><input type="checkbox" id="select-result-1"></td>
-               <td><span>1. 82%</span></td>
+               <td><input type="checkbox" class="select-result"></td>
+               <td>82%</td>
                <td>18395602938597604</td>
                <td>EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
                <td>2012</td>
@@ -214,8 +219,8 @@
                <td></td>
              </tr>
              <tr>
-               <td><input type="checkbox" id="select-result-1"></td>
-               <td><span>2. 76%</span></td>
+               <td><input type="checkbox" class="select-result"></td>
+               <td>76%</td>
                <td>18395602938597604r</td>
                <td>EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
                <td>2012</td>
@@ -223,71 +228,80 @@
                <td></td>
              </tr>
               <tr>
-               <td><input type="checkbox" id="select-result-1"></td>
-               <td><span>3. 74%</span></td>
+               <td><input type="checkbox" class="select-result"></td>
+               <td>74%</td>
                <td>18395602938597604</td>
                <td>EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
-               <td>2012</td>
+               <td>1998</td>
                <td>EP</td>
                <td></td>
              </tr>
               <tr>
-               <td><input type="checkbox" id="select-result-1"></td>
-               <td><span>4. 68%</span></td>
+               <td><input type="checkbox" class="select-result"></td>
+               <td>68%</td>
                <td>18395602938597604</td>
                <td>EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
-               <td>2012</td>
+               <td>1993</td>
                <td>EP</td>
                <td></td>
              </tr>
              <tr>
-              <td><input type="checkbox" id="select-result-1"></td>
-              <td><span>4. 65%</span></td>
+              <td><input type="checkbox" class="select-result"></td>
+              <td>65%</td>
               <td>18395602938597604</td>
               <td>EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
-              <td>2012</td>
+              <td>1991</td>
               <td>EP</td>
               <td></td>
             </tr>
             <tr>
-              <td><input type="checkbox" id="select-result-1"></td>
-              <td><span>1. 82%</span></td>
+              <td><input type="checkbox" class="select-result"></td>
+              <td>82%</td>
               <td>18395602938597604</td>
               <td>EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
-              <td>2012</td>
+              <td>1994</td>
               <td>EP</td>
               <td></td>
             </tr>
             <tr>
-              <td><input type="checkbox" id="select-result-1"></td>
-              <td><span>2. 76%</span></td>
+              <td><input type="checkbox" class="select-result"></td>
+              <td>76%</td>
               <td>18395602938597604r</td>
               <td>EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
-              <td>2012</td>
+              <td>2001</td>
               <td>EP</td>
               <td></td>
             </tr>
              <tr>
-              <td><input type="checkbox" id="select-result-1"></td>
-              <td><span>3. 74%</span></td>
+              <td><input type="checkbox" class="select-result"></td>
+              <td>74%</td>
               <td>18395602938597604</td>
               <td>EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
-              <td>2012</td>
+              <td>2007</td>
               <td>EP</td>
               <td></td>
             </tr>
              <tr>
-              <td><input type="checkbox" id="select-result-1"></td>
-              <td><span>4. 68%</span></td>
+              <td><input type="checkbox" class="select-result"></td>
+              <td>68%</td>
               <td>18395602938597604</td>
               <td>EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
-              <td>2012</td>
+              <td>1995</td>
               <td>EP</td>
               <td></td>
             </tr>
             <tr>
-             <td><input type="checkbox" id="select-result-1"></td>
-             <td><span>4. 65%</span></td>
+             <td><input type="checkbox" class="select-result"></td>
+             <td>65%</td>
+             <td>18395602938597604</td>
+             <td>EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
+             <td>2000</td>
+             <td>EP</td>
+             <td></td>
+           </tr>
+           <tr>
+             <td><input type="checkbox" class="select-result"></td>
+             <td>82%</td>
              <td>18395602938597604</td>
              <td>EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
              <td>2012</td>
@@ -295,17 +309,8 @@
              <td></td>
            </tr>
            <tr>
-             <td><input type="checkbox" id="select-result-1"></td>
-             <td><span>1. 82%</span></td>
-             <td>18395602938597604</td>
-             <td>EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
-             <td>2012</td>
-             <td>EP</td>
-             <td></td>
-           </tr>
-           <tr>
-             <td><input type="checkbox" id="select-result-1"></td>
-             <td><span>2. 76%</span></td>
+             <td><input type="checkbox" class="select-result"></td>
+             <td>76%</td>
              <td>18395602938597604r</td>
              <td>EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
              <td>2012</td>
@@ -313,8 +318,8 @@
              <td></td>
            </tr>
             <tr>
-             <td><input type="checkbox" id="select-result-1"></td>
-             <td><span>3. 74%</span></td>
+             <td><input type="checkbox" class="select-result"></td>
+             <td>74%</td>
              <td>18395602938597604</td>
              <td>EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
              <td>2012</td>
@@ -322,8 +327,8 @@
              <td></td>
            </tr>
             <tr>
-             <td><input type="checkbox" id="select-result-1"></td>
-             <td><span>4. 68%</span></td>
+             <td><input type="checkbox" class="select-result"></td>
+             <td>68%</td>
              <td>18395602938597604</td>
              <td>EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
              <td>2012</td>
@@ -331,15 +336,16 @@
              <td></td>
            </tr>
            <tr>
-            <td><input type="checkbox" id="select-result-1"></td>
-            <td><span>4. 65%</span></td>
+            <td><input type="checkbox" class="select-result"></td>
+            <td>65%</td>
             <td>18395602938597604</td>
             <td>EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
             <td>2012</td>
             <td>EP</td>
             <td></td>
           </tr>
-              </table> 
+          </tbody>
+        </table> 
         </div>
     </div>
   </body>

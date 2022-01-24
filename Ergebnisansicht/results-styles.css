@@ -12,7 +12,7 @@
 }
 
 #homebutton {
-    background-color: #455463;
+    background-color: #4B120F;
     height: 80px;
     width: 80px;
     border-radius: 100%;
@@ -32,7 +32,7 @@
 }
 
 .dropbtn {
-    background-color: #455463;
+    background-color: #4B120F;
     color: white;
     padding: 16px;
     font-size: 16px;
@@ -49,7 +49,8 @@
   .dropdown-content {
     display: none;
     position: absolute;
-    background: rgba(69, 84, 99, 0.75);
+    background: #4B120F ;
+    opacity: 75%;
     box-shadow: 0px 4px 4px rgba(111, 113, 114, 0.5);
     border-radius: 12px;
     min-width: 100%;
@@ -73,15 +74,16 @@
   .login-btn {
     margin-top: 5px;
     border-radius: 16px;
-    background-color: #455463;
+    background-color: #4B120F;
     border: none;
     padding: 5px;
     cursor: pointer;
     color: white;
   }
   .dropdown-content a:hover {
-    background-color: #455463;
+    background-color: #653634;
     border-radius: 12px;
+
   }
   
   .dropdown:hover .dropdown-content {
@@ -89,7 +91,7 @@
   }
   
   .dropdown:hover .dropbtn {
-    background-color: #455463;
+    background-color: #4B120F;
   }
 
   .login-textfield {
@@ -147,7 +149,7 @@ table {
     border-spacing: 0px 15px;
 }
 
-table tr:first-child {
+thead tr:first-child {
     background-color: gray;
 }
 
@@ -159,4 +161,7 @@ table tr {
     margin-left: 20%;
 }
 
+select {
+  -webkit-appearance: menulist-button;
+}
 
