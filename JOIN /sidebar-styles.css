@@ -1,0 +1,153 @@
+:root {
+    --basis: #dfe3e5;
+    --buttongrey: # rgba(171, 177, 207, 0.5);
+    --buttonhover: #fbfcfc;
+    --shadow:#6f7172;
+    --buttonwhite: #fbfcfc;
+    --textcolor: #161616;
+    --buttonOnClick: #455463;
+    --filterblue: #ABB1CF, 50%;
+    --menured: #4B120F;
+}
+
+body {
+    background-color: var(--buttonwhite);
+    margin: 0 auto;
+    padding:0;
+    position:absolute;
+    /*overflow:hidden; --> verhindert scrollen */
+    left:0;
+    right:0;
+    top:2.5%;
+    bottom:2.5%;
+    color: var(--textcolor) ;
+    font-family: 'Roboto';
+    padding: 2%;
+}
+
+@media screen and (max-width: 1500px) {
+    #sidebarTotal {
+        width: 1200px;
+    }
+}
+
+#sidebarTotal{
+    margin-top: 15px;
+}
+
+#sidebarH3 {
+    text-align: center;
+}
+
+/* Style Buttons Farben Stand 25.01.2022 */
+button {
+    box-sizing: border-box;
+    background: var(--buttongrey);
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 17px;
+    display: flex;
+    /*Methode um den Inhalt der Buttons vertikal und horizontal zu zentrieren*/
+    justify-content: center;
+    align-items: center;
+    border: none;
+    box-shadow: 2px 2px 5px var(--shadow);
+}
+
+button:hover {
+    background-color: var(--buttonhover);
+}
+
+/* siehe aktuelle Farben der Wireframe-Gruppe Stand 25.01.22*/
+.sidebarButton{
+    background: #ABB1CF, 50%;
+}
+
+
+#filter1 {
+    float: left;
+    width: 11%;
+    /*min-width: 195px; 
+    max-width: 230px; */
+    padding-top: 1px;
+    padding: 0.5%;
+    padding-bottom: 80px;
+    background-color:var(--basis);
+    border-style: solid;
+    border-color: var(--shadow);
+    border-width: 1px;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.slider:hover {
+    opacity: 1;
+}
+
+.wrapper{
+    position: relative;
+    padding-right: 1%;
+    margin-bottom: 50px;
+}
+.graph{
+    border-style: solid;
+    border-color: var(--buttongrey);
+    border-width: thin;
+    width: 98%;
+}
+
+.sliderContainer{
+    position: relative;
+    margin-bottom: 2%;   
+}
+
+input[type="range"]{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 99%;
+    outline: none;
+    position: absolute;
+    margin: auto;
+    background-color: var(--menured);
+    pointer-events: none;
+}
+
+/*Range Linie unterhalb des Graphen*/
+input[type="range"]::-webkit-slider-runnable-track{
+    -webkit-appearance: none;
+    /* Dicke der Linie*/
+    height: 4px;
+}
+
+input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    pointer-events: auto; /* ohne würden die Slider nicht bewegbar sein*/
+    margin-top: -10px;
+    cursor: pointer;
+    /* für die dreieckige Form der Slider */
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 18px solid var(--menured);
+}
+
+/* Größe der Input Felder from to*/
+input[type="number"]{
+    width: 87px;
+}
+
+#submitYear{
+    float: right;
+}
+
+#resetOptions{
+    margin: auto;
+}
+
+/* siehe aktuelle Farben der Wireframe-Gruppe Stand 25.01.22*/
+.resetOptions:hover {
+    background-color: #455463;
+}

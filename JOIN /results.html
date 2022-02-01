@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <link rel="stylesheet" href="results-styles.css">
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <script type="text/javascript" src="javascript.js?v=1"></script>
+  <link rel="stylesheet" href="sidebar-styles.css">
+  <script src="sidebar.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Titel</title>
+</head>
+
+<body>
+  <div id="header">
+    <div id="homebutton">
+      <a id="homebutton-link" href="">PS</a>
+    </div>
+    <div id="button-container">
+      <div class="dropdown">
+        <button class="dropbtn">Language Settings</button>
+        <div class="dropdown-content">
+          <a href="#">Deutsch</a>
+          <a href="#">English</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn" type="button">Login</button>
+        <div class="dropdown-content login-mask">
+          <label for="username">Username: </label>
+          <input class="login-textfield" type="text" id="username">
+          <label for="username">Password: </label>
+          <input class="login-textfield" type="text" id="password">
+          <button class="login-btn">Log into my account</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Code Ramona Sidebar Filters-->
+  <div id="sidebarTotal">
+    <button id="toggleButtonHide" onclick="toggleFilterBar()">Hide Filter-Sidebar</button>
+    <br>
+    <div id="filter1">
+      <h3 id="sidebarH3"> View Options </h3>
+      
+      <h4> Hide</h4>
+      <form id="sidebarBoxes">
+        <input type="checkbox" id="box1" onchange="toggleColumn(this, 'colRel')" value="relevance">
+        <label for="box1"> Relevance</label><br>
+        <input type="checkbox" id="box2" onchange="toggleColumn(this, 'colPubNr')" value="PubNr">
+        <label for="box2" checked> Publication number</label><br>
+        <input type="checkbox" id="box3" onchange="toggleColumn(this, 'colTitle')" value="title">
+        <label for="box3"> Title</label><br>
+        <input type="checkbox" id="box4" onchange="toggleColumn(this, 'colYear')" value="publication-date">
+        <label for="box4"> Publication date</label><br>
+        <input type="checkbox" id="box5" onchange="toggleColumn(this, 'colInventor')" value="inventor">
+        <label for="box5"> Inventor</label><br>
+        <input type="checkbox" id="box6" onchange="toggleColumn(this, 'colPic')" value="picture">
+        <label for="box6"> Picture</label><br>      
+        <br>
+      </form>
+      
+      <h4>Publication Date</h4>
+      <!--Graph and Range slider-->
+      <div class="wrapper">
+        <img class="graph" src="graph1.PNG">
+        <br>
+        <div class="sliderContainer">
+          <div class="slider-track"></div>
+          <input type="range" min="1" max="100" value="3" id="fromSlider" oninput="sliderToInputValues()">
+          <input type="range" min="1" max="100" value="99" id="toSlider" oninput="sliderToInputValues()">
+          <br>
+          <input type="number" placeholder="from" id="fromInput" onblur="inputToSliderValues()" min="1950" max="2020">
+          <input type="number" placeholder="to" id="toInput" onblur="inputToSliderValues()" min="1951" max="2021">
+        </div>
+        <button id="submitYear" type="submit" class="sidebarButton">submit</button>
+      </div>
+      <button id="resetOptions" class="sidebarButton" onclick="resetViewOptions()">Reset view options</button>
+    </div>
+  </div>
+  <!-- Code Ramona Sidebar Filters-->
+  
+  <div class="result-container">
+    <div class="result-options-container">
+      <div class="checkbox-container">
+        <input type="checkbox" id="select-all-checkbox">
+        <label for="select-all-checkbox">Select all</label>
+      </div>
+      <div class="dropdown-container">
+        <select id="add-to-list">
+          <option value="" disabled selected>Add to list</option>
+          <option value="">List 1</option>
+          <option value="">List 2</option>
+          <option value="">New List</option>
+        </select>
+        <select id="show-lists">
+          <option value="" disabled selected>Show lists</option>
+          <option value="">List 1</option>
+          <option value="">List 2</option>
+          <option value="">All results</option>
+        </select>
+        <select id="sort-by" onchange="sortTable()">
+          <option value="" disabled selected>Sort by</option>
+          <option value="relevance">Relevance</option>
+          <option value="ascending">↑ Publication date</option>
+          <option value="descending">↓ Publication date</option>
+        </select>
+      </div> 
+      
+      <!-- countResults () wird aktuell noch nicht aufgerufen-->
+      <span id="showResultNumb" onload="countResults()">Total number of results: </span>
+    </div>
+    <div class="result-display-container">
+      <table id="tableR" class="results-table">
+        <thead>
+          <tr>
+            <th id="colSelHead"></th>
+            <th id="colRelHead" class="colRel">Rele- vance</th>
+            <th class="colPubNr">Publication number</th>
+            <th class="colTitle">Title</th>
+            <th class="colYear">Publication date</th>
+            <th class="colInventor">Inventor</th>
+            <th class="colPic">Picture (first drawing)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="checkbox" class="select-result"></td>
+            <td class="colRel">82%</td>
+            <td class="colPubNr">18395602938597604</td>
+            <td class="colTitle">EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</td>
+            <td class="colYear">2020</td>
+            <td class="colInventor">EP</td>
+            <td class="colPic"><img class="resultTableDrawing" src="windmill-part.png" alt="first drawing windmill patent"></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="select-result"></td>
+            <td class="colRel">100%</td>
+            <td class="colPubNr">18395602938597604r</td>
+            <td class="colTitle">EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
+            <td class="colYear">2009</td>
+            <td class="colInventor">EP Lorem ipsum dolor sit amet,</td>
+            <td class="colPic"><img class="resultTableDrawing" src="windmill-sockel.png" alt="drawing windmill sockel patent"></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="select-result"></td>
+            <td class="colRel">74%</td>
+            <td class="colPubNr">18395602938597604</td>
+            <td class="colTitle">EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
+            <td class="colYear">2008</td>
+            <td class="colInventor">EP</td>
+            <td class="colPic"><img class="resultTableDrawing" src="windmill-part.png" alt="first drawing windmill patent"></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="select-result"></td>
+            <td class="colRel">0%</td>
+            <td class="colPubNr">18395602938597604</td>
+            <td class="colTitle">EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</td>
+            <td class="colYear">2012</td>
+            <td class="colInventor">EP Lorem ipsum dolor sit amet,</td>
+            <td class="colPic"><img class="resultTableDrawing" src="windmill-sockel.png" alt="drawing windmill sockel patent"></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="select-result"></td>
+            <td class="colRel">65%</td>
+            <td class="colPubNr">18395602938597604</td>
+            <td class="colTitle">EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
+            <td class="colYear">2012</td>
+            <td class="colInventor">EP</td>
+            <td class="colPic"><img class="resultTableDrawing" src="windmill-part.png" alt="first drawing windmill patent"></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="select-result"></td>
+            <td class="colRel">82%</td>
+            <td class="colPubNr">18395602938597604</td>
+            <td class="colTitle">EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</td>
+            <td class="colYear">2012</td>
+            <td class="colInventor">EP</td>
+            <td class="colPic"><img class="resultTableDrawing" src="windmill-sockel.png" alt="drawing windmill sockel patent"></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="select-result"></td>
+            <td class="colRel">76%</td>
+            <td class="colPubNr">18395602938597604r</td>
+            <td class="colTitle">EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
+            <td class="colYear">2022</td>
+            <td class="colInventor">EP Lorem ipsum dolor sit amet,</td>
+            <td class="colPic"><img class="resultTableDrawing" src="windmill-part.png" alt="first drawing windmill patent"></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="select-result"></td>
+            <td class="colRel">74%</td>
+            <td class="colPubNr">18395602938597604</td>
+            <td class="colTitle">EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
+            <td class="colYear">2018</td>
+            <td class="colInventor">EP</td>
+            <td class="colPic"></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="select-result"></td>
+            <td class="colRel">68%</td>
+            <td class="colPubNr">18395602938597604</td>
+            <td class="colTitle">EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</td>
+            <td class="colYear">2012</td>
+            <td class="colInventor">EP Lorem ipsum dolor sit amet,</td>
+            <td class="colPic"><img class="resultTableDrawing" src="windmill-sockel.png" alt="drawing windmill sockel patent"></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="select-result"></td>
+            <td class="colRel">65%</td>
+            <td class="colPubNr">18395602938597604</td>
+            <td class="colTitle">EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
+            <td class="colYear">2021</td>
+            <td class="colInventor">EP Lorem ipsum dolor sit amet,</td>
+            <td class="colPic"></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="select-result"></td>
+            <td class="colRel">82%</td>
+            <td class="colPubNr">18395602938597604</td>
+            <td class="colTitle">EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
+            <td class="colYear">2012</td>
+            <td class="colInventor">EP Lorem ipsum dolor sit amet,</td>
+            <td class="colPic"></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="select-result"></td>
+            <td class="colRel">76%</td>
+            <td class="colPubNr">18395602938597604r</td>
+            <td class="colTitle">EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
+            <td class="colYear">2012</td>
+            <td class="colInventor">EP</td>
+            <td class="colPic"></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="select-result"></td>
+            <td class="colRel">74%</td>
+            <td class="colPubNr">18395602938597604</td>
+            <td class="colTitle">EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</td>
+            <td class="colYear">2012</td>
+            <td class="colInventor">EP</td>
+            <td class="colPic"><img class="resultTableDrawing" src="windmill-sockel.png" alt="drawing windmill sockel patent"></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="select-result"></td>
+            <td class="colRel">68%</td>
+            <td class="colPubNr">18395602938597604</td>
+            <td class="colTitle">EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
+            <td class="colYear">2012</td>
+            <td class="colInventor">EP Lorem ipsum dolor sit amet,</td>
+            <td class="colPic"></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="select-result"></td>
+            <td class="colRel">65%</td>
+            <td class="colPubNr">18395602938597604</td>
+            <td class="colTitle">EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
+            <td class="colYear">2012</td>
+            <td class="colInventor">EP</td>
+            <td class="colPic"></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="select-result"></td>
+            <td class="colRel">82%</td>
+            <td class="colPubNr">18395602938597604</td>
+            <td class="colTitle">EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
+            <td class="colYear">2012</td>
+            <td class="colInventor">EP Lorem ipsum dolor sit amet,</td>
+            <td class="colPic"></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="select-result"></td>
+            <td class="colRel">76%</td>
+            <td class="colPubNr">18395602938597604r</td>
+            <td class="colTitle">EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
+            <td class="colYear">2012</td>
+            <td class="colInventor">EP</td>
+            <td class="colPic"><img class="resultTableDrawing" src="windmill-sockel.png" alt="drawing windmill sockel patent"></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="select-result"></td>
+            <td class="colRel">74%</td>
+            <td class="colPubNr">18395602938597604</td>
+            <td class="colTitle">EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
+            <td class="colYear">1998</td>
+            <td class="colInventor">EP</td>
+            <td class="colPic"></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="select-result"></td>
+            <td class="colRel">68%</td>
+            <td class="colPubNr">18395602938597604</td>
+            <td class="colTitle">EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
+            <td class="colYear">1993</td>
+            <td class="colInventor">EP</td>
+            <td class="colPic"></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="select-result"></td>
+            <td class="colRel">65%</td>
+            <td class="colPubNr">18395602938597604</td>
+            <td class="colTitle">EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
+            <td class="colYear">1991</td>
+            <td class="colInventor">EP Lorem ipsum dolor sit amet,</td>
+            <td class="colPic"></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="select-result"></td>
+            <td class="colRel">82%</td>
+            <td class="colPubNr">18395602938597604</td>
+            <td class="colTitle">EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
+            <td class="colYear">1994</td>
+            <td class="colInventor">EP</td>
+            <td class="colPic"></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="select-result"></td>
+            <td class="colRel">76%</td>
+            <td class="colPubNr">18395602938597604r</td>
+            <td class="colTitle">EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
+            <td class="colYear">2001</td>
+            <td class="colInventor">EP Lorem ipsum dolor sit amet,</td>
+            <td class="colPic"></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="select-result"></td>
+            <td class="colRel">74%</td>
+            <td class="colPubNr">18395602938597604</td>
+            <td class="colTitle">EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
+            <td class="colYear">2007</td>
+            <td class="colInventor">EP</td>
+            <td class="colPic"></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="select-result"></td>
+            <td class="colRel">68%</td>
+            <td class="colPubNr">18395602938597604</td>
+            <td class="colTitle">EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
+            <td class="colYear">1995</td>
+            <td class="colInventor">EP</td>
+            <td class="colPic"></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="select-result"></td>
+            <td class="colRel">65%</td>
+            <td class="colPubNr">18395602938597604</td>
+            <td class="colTitle">EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
+            <td class="colYear">2000</td>
+            <td class="colInventor">EP Lorem ipsum dolor sit amet,</td>
+            <td class="colPic"></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="select-result"></td>
+            <td class="colRel">82%</td>
+            <td class="colPubNr">18395602938597604</td>
+            <td class="colTitle">EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
+            <td class="colYear">2012</td>
+            <td class="colInventor">EP</td>
+            <td class="colPic"></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="select-result"></td>
+            <td class="colRel">76%</td>
+            <td class="colPubNr">18395602938597604r</td>
+            <td class="colTitle">EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
+            <td class="colYear">2012</td>
+            <td class="colInventor">EP</td>
+            <td class="colPic"></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="select-result"></td>
+            <td class="colRel">74%</td>
+            <td class="colPubNr">18395602938597604</td>
+            <td class="colTitle">EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
+            <td class="colYear">2012</td>
+            <td class="colInventor">EP</td>
+            <td class="colPic"></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="select-result"></td>
+            <td class="colRel">68%</td>
+            <td class="colPubNr">18395602938597604</td>
+            <td class="colTitle">EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
+            <td class="colYear">2012</td>
+            <td class="colInventor">EP</td>
+            <td class="colPic"></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox" class="select-result"></td>
+            <td class="colRel">65%</td>
+            <td class="colPubNr">18395602938597604</td>
+            <td class="colTitle">EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
+            <td class="colYear">2012</td>
+            <td class="colInventor">EP</td>
+            <td class="colPic"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>
