@@ -10,7 +10,7 @@ $(document).ready(function(){
 
 function sortTable() {
    var table, rows, switching, i, x, y, shouldSwitch;
-   table = document.getElementById("results-table");
+   table = document.getElementById("tableR");
    switching = true;
    var dropdown = document.getElementById("sort-by");
    var selection = dropdown.value;

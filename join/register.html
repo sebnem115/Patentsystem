@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <link rel="stylesheet" href="results-styles.css">
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <script type="text/javascript" src="javascript.js?v=1"></script>
+  <link rel="stylesheet" href="sidebar-styles.css">
+  <script src="sidebar.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Titel</title>
+</head>
+
+<body>
+  <div id="header">
+    <div id="homebutton">
+      <a id="homebutton-link" href="results.html">PS</a>
+    </div>
+    <div id="button-container">
+      <div class="dropdown">
+        <button class="dropbtn">Language Settings</button>
+        <div class="dropdown-content">
+          <a href="#">Deutsch</a>
+          <a href="#">English</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn" type="button">Login</button>
+        <div class="dropdown-content login-mask">
+          <label for="username">Username: </label>
+          <input class="login-textfield" type="text" id="username">
+          <label for="username">Password: </label>
+          <input class="login-textfield" type="text" id="password">
+          <button class="login-btn">Log into my account</button>
+          <form>
+            <button formaction="register.html" class="login-btn">Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="register-form-container">
+        <div class="register-form">
+            <label class="register-label" for="username">Username</label>
+            <input class="register-textfield" type="text" id="username">
+            <label class="register-label" for="username">E-Mail</label>
+            <input class="register-textfield" type="text" id="email">
+            <label class="register-label" for="username">Password</label>
+            <input class="register-textfield" type="password" id="password">
+            <label class="register-label" for="username">Confirm password</label>
+            <input class="register-textfield" type="password" id="confirm-password">
+            <button class="register-button">Create new account</button>
+            <form>
+              <button formaction="results.html" class="register-button">Go back</button>
+            </form>
+        </div>
+  </div>
+
+
+</body>
+
+</html>

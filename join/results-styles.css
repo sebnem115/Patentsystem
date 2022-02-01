@@ -73,11 +73,48 @@ body {
 .dropdown-content {
   display: none;
   position: absolute;
-  background: var(--menured) ;
-  opacity: 75%;
+  background: #653634cc;
+  opacity: 100%;
   box-shadow: 0px 4px 4px var(--shadow);
   border-radius: 12px;
   min-width: 100%;
+}
+
+.register-form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.register-form {
+  position: absolute;
+  background: #653634cc;
+  opacity: 100%;
+  box-shadow: 0px 4px 4px var(--shadow);
+  border-radius: 12px;
+  min-width: 100%;
+  min-width: 200px;
+  color: var(--buttonwhite);
+  width: 400px; 
+  padding: 40px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: flex-start;
+  row-gap: 45px;
+}
+
+.register-label {
+  flex-grow: 1;
+  flex-basis: 29%
+}
+
+.register-textfield {
+  flex-grow: 2;
+  flex-basis: 70%;
+  border-radius: 16px;
+  border: none;
+  height: 27px;
 }
 
 .login-mask {
@@ -94,15 +131,20 @@ body {
   display: block;
 }
 
-.login-btn {
+.login-btn, .register-button {
   margin-top: 5px;
   border-radius: 16px;
-  background-color: var(--menured);
+  background-color: #653634;
   border: none;
   padding: 5px;
   cursor: pointer;
   color: white;
 }
+
+.login-btn:hover, .register-button:hover {
+  background-color: #4B120F;
+}
+
 .dropdown-content a:hover {
   background-color: #653634;
   border-radius: 12px;

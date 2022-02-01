@@ -40,7 +40,7 @@ body {
 }
 
 /* Style Buttons Farben Stand 25.01.2022 */
-button {
+.sidebarButton, #toggleButtonHide {
     box-sizing: border-box;
     background: var(--buttongrey);
     text-align: center;
@@ -55,7 +55,7 @@ button {
     box-shadow: 2px 2px 5px var(--shadow);
 }
 
-button:hover {
+.sidebarButton:hover {
     background-color: var(--buttonhover);
 }
 
