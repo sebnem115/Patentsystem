@@ -71,6 +71,7 @@ body {
     /*min-width: 195px; 
     max-width: 230px; */
     padding-top: 1px;
+    margin-right: 10px;
     padding: 0.5%;
     padding-bottom: 80px;
     background-color:var(--basis);

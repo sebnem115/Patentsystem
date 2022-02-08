@@ -4,15 +4,35 @@
 <head>
   <link rel="stylesheet" href="results-styles.css">
   <script type="text/javascript" src="jquery.min.js"></script>
-  <script type="text/javascript" src="javascript.js?v=1"></script>
+  <script type="text/javascript" src="javascript.js"></script>
   <link rel="stylesheet" href="sidebar-styles.css">
+  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
   <script src="sidebar.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Titel</title>
 </head>
 
-<body>
+<body  onload="countResults()">
+  <div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <div class="register-form-container">
+      <div class="register-form">
+          <label class="register-label" for="username">Username</label>
+          <input class="register-textfield" type="text" id="username">
+          <label class="register-label" for="username">E-Mail</label>
+          <input class="register-textfield" type="email" id="email">
+          <label class="register-label" for="username">Password</label>
+          <input class="register-textfield" type="password" id="password">
+          <label class="register-label" for="username">Confirm password</label>
+          <input class="register-textfield" type="password" id="confirm-password">
+          <button onclick="register()" class="header-btn register-dialog-btn">Create new account</button>
+          <form>
+            <button formaction="results.html" class="header-btn register-dialog-btn">Go back</button>
+          </form>
+      </div>
+</div>
+</div>
   <div id="header">
     <div id="homebutton">
       <a id="homebutton-link" href="results.html">PS</a>
@@ -25,17 +45,60 @@
           <a href="#">English</a>
         </div>
       </div>
-      <div class="dropdown">
+      <div id="login-dropdown" class="dropdown">
         <button class="dropbtn" type="button">Login</button>
         <div class="dropdown-content login-mask">
           <label for="username">Username: </label>
-          <input class="login-textfield" type="text" id="username">
+          <input class="login-textfield" type="text" id="username-login">
           <label for="username">Password: </label>
-          <input class="login-textfield" type="text" id="password">
-          <button class="login-btn">Log into my account</button>
-          <form>
-            <button formaction="register.html" class="login-btn">Register</button>
-          </form>
+          <input class="login-textfield" type="password" id="password-login">
+          <button onclick="login()" class="header-btn">Log into my account</button>
+          <button class="header-btn register-btn">Register</button>
+        </div>
+      </div>
+      <div id="user-settings-dropdown" class="hide-dropdown">
+        <button id="user-settings-dropdown-button" class="dropbtn" type="button"></button>
+        <div class="dropdown-content login-mask">
+          <div class="user-profile-settings-container">
+            <div>
+              <span>User profile settings</span>
+              <label for="username-change">Username</label>
+              <input class="login-textfield" type="text" id="username-change">
+            </div>
+            <div>
+              <span>Change password</span>
+              <label for="password-change">Password</label>
+              <input class="login-textfield" type="password" id="password-change">
+              <label for="confirm-password-change">New Password</label>
+              <input class="login-textfield" type="password" id="confirm-password-change">
+            </div>
+            <div>
+              <span>Change e-mail</span>
+              <label for="email-change">E-Mail</label>
+              <input class="login-textfield" type="password" id="email-change">
+              <label for="username">New E-Mail</label>
+              <input class="login-textfield" type="password" id="confirm-password-change">
+            </div>
+            <div>
+              <span>Data & Privacy</span>
+              <div class="user-profile-settings-checkbox-container">
+                <input type="checkbox" id="save-log-checkbox">
+                <label for="save-log-checkbox">Save log in data</label>
+              </div>
+              <div class="user-profile-settings-checkbox-container">
+                <input type="checkbox" id="save-search-history-checkbox">
+                <label for="save-search-history-checkbox">Save search history</label>
+            </div>
+            <div class="user-profile-settings-checkbox-container">
+                <input type="checkbox" id="allow-cookies-checkbox">
+                <label for="allow-cookies-checkbox">Allow cookies</label>
+            </div>
+            </div>
+            <button class="header-btn">Legal Disclosure</button>
+            <button class="header-btn">Privacy</button>
+            <button class="header-btn">Save</button>
+            <button onclick="logout()" class="header-btn">Logout</button>
+          </div>
         </div>
       </div>
     </div>
@@ -113,12 +176,13 @@
       </div> 
       
       <!-- countResults () wird aktuell noch nicht aufgerufen-->
-      <span id="showResultNumb" onload="countResults()">Total number of results: </span>
+      <span id="showResultNumb">Total number of results: </span>
     </div>
     <div class="result-display-container">
       <table id="tableR" class="results-table">
         <thead>
           <tr>
+            <th class="colNumber"></th>
             <th id="colSelHead"></th>
             <th id="colRelHead" class="colRel">Rele- vance</th>
             <th class="colPubNr">Publication number</th>
@@ -130,6 +194,7 @@
         </thead>
         <tbody>
           <tr>
+            <td class="colNumber"></td>
             <td><input type="checkbox" class="select-result"></td>
             <td class="colRel">82%</td>
             <td class="colPubNr">18395602938597604</td>
@@ -139,6 +204,7 @@
             <td class="colPic"><img class="resultTableDrawing" src="windmill-part.png" alt="first drawing windmill patent"></td>
           </tr>
           <tr>
+            <td class="colNumber"></td>
             <td><input type="checkbox" class="select-result"></td>
             <td class="colRel">100%</td>
             <td class="colPubNr">18395602938597604r</td>
@@ -148,6 +214,7 @@
             <td class="colPic"><img class="resultTableDrawing" src="windmill-sockel.png" alt="drawing windmill sockel patent"></td>
           </tr>
           <tr>
+            <td class="colNumber"></td>
             <td><input type="checkbox" class="select-result"></td>
             <td class="colRel">74%</td>
             <td class="colPubNr">18395602938597604</td>
@@ -157,6 +224,7 @@
             <td class="colPic"><img class="resultTableDrawing" src="windmill-part.png" alt="first drawing windmill patent"></td>
           </tr>
           <tr>
+            <td class="colNumber"></td>
             <td><input type="checkbox" class="select-result"></td>
             <td class="colRel">0%</td>
             <td class="colPubNr">18395602938597604</td>
@@ -166,6 +234,7 @@
             <td class="colPic"><img class="resultTableDrawing" src="windmill-sockel.png" alt="drawing windmill sockel patent"></td>
           </tr>
           <tr>
+            <td class="colNumber"></td>
             <td><input type="checkbox" class="select-result"></td>
             <td class="colRel">65%</td>
             <td class="colPubNr">18395602938597604</td>
@@ -175,6 +244,7 @@
             <td class="colPic"><img class="resultTableDrawing" src="windmill-part.png" alt="first drawing windmill patent"></td>
           </tr>
           <tr>
+            <td class="colNumber"></td>
             <td><input type="checkbox" class="select-result"></td>
             <td class="colRel">82%</td>
             <td class="colPubNr">18395602938597604</td>
@@ -184,6 +254,7 @@
             <td class="colPic"><img class="resultTableDrawing" src="windmill-sockel.png" alt="drawing windmill sockel patent"></td>
           </tr>
           <tr>
+            <td class="colNumber"></td>
             <td><input type="checkbox" class="select-result"></td>
             <td class="colRel">76%</td>
             <td class="colPubNr">18395602938597604r</td>
@@ -193,6 +264,7 @@
             <td class="colPic"><img class="resultTableDrawing" src="windmill-part.png" alt="first drawing windmill patent"></td>
           </tr>
           <tr>
+            <td class="colNumber"></td>
             <td><input type="checkbox" class="select-result"></td>
             <td class="colRel">74%</td>
             <td class="colPubNr">18395602938597604</td>
@@ -202,6 +274,7 @@
             <td class="colPic"></td>
           </tr>
           <tr>
+            <td class="colNumber"></td>
             <td><input type="checkbox" class="select-result"></td>
             <td class="colRel">68%</td>
             <td class="colPubNr">18395602938597604</td>
@@ -211,6 +284,7 @@
             <td class="colPic"><img class="resultTableDrawing" src="windmill-sockel.png" alt="drawing windmill sockel patent"></td>
           </tr>
           <tr>
+            <td class="colNumber"></td>
             <td><input type="checkbox" class="select-result"></td>
             <td class="colRel">65%</td>
             <td class="colPubNr">18395602938597604</td>
@@ -220,6 +294,7 @@
             <td class="colPic"></td>
           </tr>
           <tr>
+            <td class="colNumber"></td>
             <td><input type="checkbox" class="select-result"></td>
             <td class="colRel">82%</td>
             <td class="colPubNr">18395602938597604</td>
@@ -229,6 +304,7 @@
             <td class="colPic"></td>
           </tr>
           <tr>
+            <td class="colNumber"></td>
             <td><input type="checkbox" class="select-result"></td>
             <td class="colRel">76%</td>
             <td class="colPubNr">18395602938597604r</td>
@@ -238,6 +314,7 @@
             <td class="colPic"></td>
           </tr>
           <tr>
+            <td class="colNumber"></td>
             <td><input type="checkbox" class="select-result"></td>
             <td class="colRel">74%</td>
             <td class="colPubNr">18395602938597604</td>
@@ -247,6 +324,7 @@
             <td class="colPic"><img class="resultTableDrawing" src="windmill-sockel.png" alt="drawing windmill sockel patent"></td>
           </tr>
           <tr>
+            <td class="colNumber"></td>
             <td><input type="checkbox" class="select-result"></td>
             <td class="colRel">68%</td>
             <td class="colPubNr">18395602938597604</td>
@@ -256,6 +334,7 @@
             <td class="colPic"></td>
           </tr>
           <tr>
+            <td class="colNumber"></td>
             <td><input type="checkbox" class="select-result"></td>
             <td class="colRel">65%</td>
             <td class="colPubNr">18395602938597604</td>
@@ -265,6 +344,7 @@
             <td class="colPic"></td>
           </tr>
           <tr>
+            <td class="colNumber"></td>
             <td><input type="checkbox" class="select-result"></td>
             <td class="colRel">82%</td>
             <td class="colPubNr">18395602938597604</td>
@@ -274,6 +354,7 @@
             <td class="colPic"></td>
           </tr>
           <tr>
+            <td class="colNumber"></td>
             <td><input type="checkbox" class="select-result"></td>
             <td class="colRel">76%</td>
             <td class="colPubNr">18395602938597604r</td>
@@ -283,6 +364,7 @@
             <td class="colPic"><img class="resultTableDrawing" src="windmill-sockel.png" alt="drawing windmill sockel patent"></td>
           </tr>
           <tr>
+            <td class="colNumber"></td>
             <td><input type="checkbox" class="select-result"></td>
             <td class="colRel">74%</td>
             <td class="colPubNr">18395602938597604</td>
@@ -292,6 +374,7 @@
             <td class="colPic"></td>
           </tr>
           <tr>
+            <td class="colNumber"></td>
             <td><input type="checkbox" class="select-result"></td>
             <td class="colRel">68%</td>
             <td class="colPubNr">18395602938597604</td>
@@ -301,6 +384,7 @@
             <td class="colPic"></td>
           </tr>
           <tr>
+            <td class="colNumber"></td>
             <td><input type="checkbox" class="select-result"></td>
             <td class="colRel">65%</td>
             <td class="colPubNr">18395602938597604</td>
@@ -310,6 +394,7 @@
             <td class="colPic"></td>
           </tr>
           <tr>
+            <td class="colNumber"></td>
             <td><input type="checkbox" class="select-result"></td>
             <td class="colRel">82%</td>
             <td class="colPubNr">18395602938597604</td>
@@ -319,6 +404,7 @@
             <td class="colPic"></td>
           </tr>
           <tr>
+            <td class="colNumber"></td>
             <td><input type="checkbox" class="select-result"></td>
             <td class="colRel">76%</td>
             <td class="colPubNr">18395602938597604r</td>
@@ -328,6 +414,7 @@
             <td class="colPic"></td>
           </tr>
           <tr>
+            <td class="colNumber"></td>
             <td><input type="checkbox" class="select-result"></td>
             <td class="colRel">74%</td>
             <td class="colPubNr">18395602938597604</td>
@@ -337,6 +424,7 @@
             <td class="colPic"></td>
           </tr>
           <tr>
+            <td class="colNumber"></td>
             <td><input type="checkbox" class="select-result"></td>
             <td class="colRel">68%</td>
             <td class="colPubNr">18395602938597604</td>
@@ -346,6 +434,7 @@
             <td class="colPic"></td>
           </tr>
           <tr>
+            <td class="colNumber"></td>
             <td><input type="checkbox" class="select-result"></td>
             <td class="colRel">65%</td>
             <td class="colPubNr">18395602938597604</td>
@@ -355,6 +444,7 @@
             <td class="colPic"></td>
           </tr>
           <tr>
+            <td class="colNumber"></td>
             <td><input type="checkbox" class="select-result"></td>
             <td class="colRel">82%</td>
             <td class="colPubNr">18395602938597604</td>
@@ -364,6 +454,7 @@
             <td class="colPic"></td>
           </tr>
           <tr>
+            <td class="colNumber"></td>
             <td><input type="checkbox" class="select-result"></td>
             <td class="colRel">76%</td>
             <td class="colPubNr">18395602938597604r</td>
@@ -373,6 +464,7 @@
             <td class="colPic"></td>
           </tr>
           <tr>
+            <td class="colNumber"></td>
             <td><input type="checkbox" class="select-result"></td>
             <td class="colRel">74%</td>
             <td class="colPubNr">18395602938597604</td>
@@ -382,6 +474,7 @@
             <td class="colPic"></td>
           </tr>
           <tr>
+            <td class="colNumber"></td>
             <td><input type="checkbox" class="select-result"></td>
             <td class="colRel">68%</td>
             <td class="colPubNr">18395602938597604</td>
@@ -391,6 +484,7 @@
             <td class="colPic"></td>
           </tr>
           <tr>
+            <td class="colNumber"></td>
             <td><input type="checkbox" class="select-result"></td>
             <td class="colRel">65%</td>
             <td class="colPubNr">18395602938597604</td>

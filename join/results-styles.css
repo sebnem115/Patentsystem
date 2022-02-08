@@ -33,12 +33,14 @@ body {
 #homebutton-link {
   color: var(--buttonwhite);
   text-decoration: none;
+  font-size: 48px;
+  font-family: 'Roboto';
 }
 
 #homebutton {
   background-color: var(--menured);
-  height: 80px;
-  width: 80px;
+  height: 124px;
+  width: 124px;
   border-radius: 100%;
   text-align: center;
   display: flex;
@@ -58,11 +60,13 @@ body {
 .dropbtn {
   background-color: var(--menured);
   color: var(--buttonwhite);
-  padding: 16px;
-  font-size: 16px;
+  padding: 14px;
+  font-size: 18px;
   border: none;
   cursor: pointer;
   border-radius: 16px;
+  width: 175px;
+  height: 96px;
 }
 
 .dropdown {
@@ -89,7 +93,6 @@ body {
   position: absolute;
   background: #653634cc;
   opacity: 100%;
-  box-shadow: 0px 4px 4px var(--shadow);
   border-radius: 12px;
   min-width: 100%;
   min-width: 200px;
@@ -131,7 +134,11 @@ body {
   display: block;
 }
 
-.login-btn, .register-button {
+.hide-dropdown {
+  display: none;
+}
+
+.header-btn {
   margin-top: 5px;
   border-radius: 16px;
   background-color: #653634;
@@ -141,9 +148,10 @@ body {
   color: white;
 }
 
-.login-btn:hover, .register-button:hover {
+.header-btn:hover {
   background-color: #4B120F;
 }
+
 
 .dropdown-content a:hover {
   background-color: #653634;
@@ -164,6 +172,23 @@ body {
   border-radius: 16px;
   border: none;
 }
+
+.user-profile-settings-container label  {
+  display: block;
+  width: 90%;
+}
+
+.user-profile-settings-container span {
+  font-size: 12px;
+  display: block;
+  margin-left: -10px;
+}
+
+
+.user-profile-settings-checkbox-container {
+  display: block ruby;
+}
+
 
 #showResultNumb {
   margin-left: 30%;
@@ -247,3 +272,40 @@ select {
   max-width: 100px;
 }
 
+
+/* --------------- MODAL ---------------- */
+
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+.show {
+  display: block;
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover, .close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}

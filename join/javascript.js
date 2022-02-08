@@ -5,8 +5,79 @@ $(document).ready(function(){
       } else {
          $('.select-result').prop('checked', false);
       }
-   }
-)});
+   });
+   
+   setRowNumbering();
+
+   $("body").on("click", ".register-btn",function(event){
+      console.log("Button clicked");
+      $(".modal").addClass("show");
+    });
+
+    $("body").on("click", ".close",function(event){
+      console.log("Button clicked");
+      $(".modal").removeClass("show");
+    })
+    
+    $("body").on("click", ".register-dialog-btn", function(event){
+      console.log("Button clicked");
+      $(".modal").removeClass("show");
+    })
+
+    checkIfLoggedIn();
+
+});
+
+function register() {
+  var inputUsername = document.getElementById("username");
+  localStorage.setItem("username", inputUsername.value);
+  localStorage.setItem("loggedin", 1);
+  checkIfLoggedIn();
+  console.log("registered");
+}
+
+function checkIfLoggedIn() {
+  var username = localStorage.getItem("username");
+  var loggedin = localStorage.getItem("loggedin");
+  if (username != null && loggedin == 1) {
+    $("#login-dropdown").addClass("hide-dropdown");
+    $("#login-dropdown").removeClass("dropdown");
+    $("#user-settings-dropdown").addClass("dropdown");
+    $("#user-settings-dropdown").removeClass("hide-dropdown");
+    $("#user-settings-dropdown-button").text(username);
+    console.log(username);
+  }
+}
+
+function login() {
+  var inputUsernameLogin = document.getElementById("username-login");
+  console.log("logged in");
+  if(localStorage.getItem("username") == inputUsernameLogin.value) {
+    localStorage.setItem("loggedin", 1);
+    checkIfLoggedIn();
+  }
+}
+
+function logout() {
+  localStorage.setItem("loggedin", 0);
+  $("#user-settings-dropdown").removeClass("dropdown");
+  $("#user-settings-dropdown").addClass("hide-dropdown");
+  $("#login-dropdown").removeClass("hide-dropdown");
+  $("#login-dropdown").addClass("dropdown");
+  $("#user-settings-dropdown-button").text(username);
+}
+
+function setRowNumbering() {
+  var i = 1;
+  $('tbody').children().each(function(){
+    $(this).children().first().text(i +".");
+    i++;
+  })
+}
+
+function countResults() {
+  document.getElementById("showResultNumb").innerHTML = document.getElementById("showResultNumb").innerHTML + document.querySelectorAll('tbody > tr ').length;
+}
 
 function sortTable() {
    var table, rows, switching, i, x, y, shouldSwitch;
@@ -14,9 +85,9 @@ function sortTable() {
    switching = true;
    var dropdown = document.getElementById("sort-by");
    var selection = dropdown.value;
-   var tagIndex = 1;
+   var tagIndex = 2;
    if(selection === "ascending" || selection === "descending") {
-      tagIndex = 4;
+      tagIndex = 5;
    }
    while (switching) {
      switching = false;
@@ -42,4 +113,5 @@ function sortTable() {
        switching = true;
      }
    }
+   setRowNumbering();
  }
