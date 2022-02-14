@@ -51,10 +51,9 @@ function checkIfLoggedIn() {
 
 function login() {
   var inputUsernameLogin = document.getElementById("username-login");
-  console.log("logged in");
   if(localStorage.getItem("username") == inputUsernameLogin.value) {
     localStorage.setItem("loggedin", 1);
-    checkIfLoggedIn();
+    location.reload();
   }
 }
 
@@ -65,6 +64,7 @@ function logout() {
   $("#login-dropdown").removeClass("hide-dropdown");
   $("#login-dropdown").addClass("dropdown");
   $("#user-settings-dropdown-button").text(username);
+  location.reload();
 }
 
 function setRowNumbering() {

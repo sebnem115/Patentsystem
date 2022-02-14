@@ -132,7 +132,7 @@
         <h2>Image Search</h2>
         <div class="image-container">
             <div class= "sub-image-container">
-                 <div class="dragdrop" id="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+                 <div class="dragdrop" id="dropzone">
                     <div>
                         <p>Drag and Drop Items here</p>
                     </div>       
@@ -148,7 +148,8 @@
             </div>
             <div class= "sub-image-container">
                 <div class="upload">
-                    <button class="upload"><i class='fa fa-upload'></i></button>
+                    <input type="file" id="fileUpload" accept="image/*" style="display: none"/>
+                    <button id="uploadButton" class="upload"><i class='fa fa-upload'></i></button>
                 </div>
             </div>      
         </div>
