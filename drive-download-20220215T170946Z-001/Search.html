@@ -1,0 +1,771 @@
+<!DOCTYPE htmlPUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="searchstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="javascript.js?v=1"></script>
+    
+<title>Patentsearch</title>
+</head>
+<body>
+<div id="header">
+        <div id="homebutton">
+            <a id="homebutton-link" href="">PS</a>
+        </div>
+        <div id="button-container">
+            <div class="dropdown">
+                <button class="dropbtn">Language Settings</button>
+                <div class="dropdown-content">
+                  <a href="#">Deutsch</a>
+                  <a href="#">English</a>
+                </div>
+            </div> 
+            <div class="dropdown">
+              <button class="dropbtn" type="button">Login</button>
+              <div class="dropdown-content login-mask">
+                <label for="username">Username: </label>
+                <input type="text" id="username">
+                <label for="username">Password: </label>
+                <input type="text" id="password">
+              </div>
+            </div> 
+        </div>
+    </div>
+<div class="searchHeader">
+    <div class="margin-header">
+        <div class= "currentQuery">
+                <h3>Current query: </h3>
+                <p class= "inputcurrent">Nothing selected yet</p>
+        </div>
+        <button type="submit" class="squarebtn" id="searchbtn"><i class="fa fa-search"></i></button> 
+    </div>
+</div>
+    
+<div class="scroll">
+    <div class= "margin-container">
+        
+        <div>
+            <h1>Search for Patents</h1>
+        </div>
+        <button class="foptions" id="gfbtn">General Filter</button>
+        <div class="filterbox" id="generalFilter">
+                <div class="subfilterbox">
+                    <div class="filter-container">
+                            <div class="filter">
+                                <p>Main IPC</p>
+                                <div class="subfiltercontent">
+                                     <form action="/action_page.php">
+                                      <input type="checkbox" id="IPC1" name="IPC1" value="Human Neccesities">
+                                      <label for="IPCA"> A: Human Necessities</label><br>
+                                      <input type="checkbox" id="IPC2" name="IPC2" value="Performaing Operations">
+                                      <label for="IPCA"> B:  Performaing Operations; Transporting </label><br>
+                                      <input type="checkbox" id="IPC3" name="IPC3" value="Chemistry; Metallurgy">
+                                      <label for="IPCA"> C: Chemistry; Metallurgy </label><br>
+                                      <input type="checkbox" id="IPC4" name="IPC4" value="Textiles; Paper">
+                                      <label for="IPCA"> D: Textiles; Paper</label><br>
+                                      <input type="checkbox" id="IPC5" name="IPC5" value="Fixed Constructions">
+                                      <label for="IPCA"> E: Fixed Constructions</label><br>
+                                      <input type="checkbox" id="IPC6" name="IPC6" value="Mechanical Engeneering">
+                                      <label for="IPCA"> F: Mechanical Engeneering; Lightning; Heating; Weapons; Blasting</label><br>
+                                      <input type="checkbox" id="IPC7" name="IPC7" value="Physics">
+                                      <label for="IPCA"> G: Physics</label><br>
+                                      <input type="checkbox" id="IPC8" name="IPC8" value="Electricity">
+                                      <label for="IPCA"> H: Electricity</label><br>
+                                    </form>   
+                                </div>  
+                            </div>
+                            <div class="filter">
+                                <p>Sub IPC</p>
+                                <div class="subfiltercontent">
+                                        <form action="/action_page.php">
+                                          <input type="checkbox" id="IPC1" name="IPC1" value="A">
+                                          <label for="IPCA"> A 01 B 33/00</label><br>
+                                          <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> A 02 B 44/00</label><br>
+                                          <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> B 01 A 55/00</label><br>  
+                                        </form>
+                                </div>  
+                            </div>
+                            <div class="filter">
+                                <p>Countries</p>
+                                <div class="subfiltercontent">
+                                     <div class="subfiltersearch" id="languagesearch">
+                                        <p><i class="fa fa-search"></i></p>
+                                        <form action="/action_page.php">
+                                            <input type="text" placeholder="Search for Country" name="CountryG">
+                                        </form>
+                                    </div>
+                                    <div class="scroll">
+                                        
+                                        <form action="/action_page.php">
+                                          <input type="checkbox" id="IPC1" name="IPC1" value="A">
+                                          <label for="IPCA"> AD</label><br>
+                                          <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> AE</label><br>
+                                          <input type="checkbox" id="IPC3" name="IPC3" value="C">
+                                          <label for="IPCA"> AF</label><br>
+                                          <input type="checkbox" id="IPC4" name="IPC4" value="D">
+                                          <label for="IPCA"> AG</label><br>
+                                          <input type="checkbox" id="IPC5" name="IPC5" value="E">
+                                          <label for="IPCA"> AI</label><br>
+                                          <input type="checkbox" id="IPC6" name="IPC6" value="F">
+                                          <label for="IPCA"> AL</label><br>
+                                          <input type="checkbox" id="IPC7" name="IPC7" value="G">
+                                          <label for="IPCA">
+                                              AM</label><br>
+                                          
+                                        </form>
+                                    </div>   
+                                </div>  
+                            </div>
+                            <div class="filter">
+                                <p>Languages</p>
+                                <div class="subfiltercontent">
+                                     <div class="subfiltersearch" id="languagesearch">
+                                        <p><i class="fa fa-search"></i></p>
+                                        <form action="/action_page.php">
+                                            <input type="text" placeholder="Search for Language" name="language">
+                                        </form>
+                                    </div>
+                                    <div class="scroll">
+                                        
+                                        <form action="/action_page.php">
+                                          <input type="checkbox" id="IPC1" name="IPC1" value="A">
+                                          <label for="IPCA"> AD</label><br>
+                                          <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> AE</label><br>
+                                          <input type="checkbox" id="IPC3" name="IPC3" value="C">
+                                          <label for="IPCA"> AF</label><br>
+                                          <input type="checkbox" id="IPC4" name="IPC4" value="D">
+                                          <label for="IPCA"> AG</label><br>
+                                          <input type="checkbox" id="IPC5" name="IPC5" value="E">
+                                          <label for="IPCA"> AI</label><br>
+                                          <input type="checkbox" id="IPC6" name="IPC6" value="F">
+                                          <label for="IPCA"> AL</label><br>
+                                          <input type="checkbox" id="IPC7" name="IPC7" value="G">
+                                          <label for="IPCA">
+                                              AM</label><br>
+                                          
+                                        </form>
+                                    </div>   
+                                </div>  
+                            </div>
+                            <div class="filter">
+                                <p>Publication Date</p>
+                                <div class="subfiltercontent">
+                                    <div class="timeframe">
+                                        <p>from</p>
+                                        <div class="yearinput" id="frominput">
+                                        <form action="/action_page.php">
+                                            <input type="text" placeholder="1998" name="fromyear">
+                                        </form>
+                                        </div>
+                                    </div>
+                                    <div class="Timeframe">
+                                        <p>to</p>
+                                        <div class="yearinput" id="toinput">
+                                        <form action="/action_page.php">
+                                            <input type="text" placeholder="2009" name="toyear">
+                                        </form>
+                                        </div>
+                                    </div>
+                                    
+                                </div> 
+                            </div>
+                            <div class="filter">
+                                <p>Publication Number</p>
+                                <div class="subfiltercontent">
+                                    <div class="numberentry">
+                                        <div class="numberinput" id="frominput">
+                                        <form action="/action_page.php">
+                                            <input type="text" placeholder="Publication Number" name="pnumber">
+                                        </form>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="filter">
+                                <p>Legal Status</p>
+                                <div class="subfiltercontent">
+                                        <form action="/action_page.php">
+                                          <input type="checkbox" id="IPC1" name="IPC1" value="A">
+                                          <label for="IPCA"> Filed</label><br>
+                                          <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> Approved</label><br>
+                                          <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> Denied</label><br>
+                                          <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> Withdrawn</label><br>  
+                                           <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> Reexamined </label><br>  
+                                          <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> Reissued </label><br> 
+                                          <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> Inactive </label>  
+                                        </form>
+                                </div>  
+                            </div>
+                            <div class="filter">
+                                <p>Part of Patent</p>
+                                <div class="subfiltercontent">
+                                        <form action="/action_page.php">
+                                          <input type="checkbox" id="IPC1" name="IPC1" value="A">
+                                          <label for="IPCA"> Bibliographic Data</label><br>
+                                          <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA">Description</label><br>
+                                          <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> Claims</label><br>
+                                          <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> Drawings</label><br>  
+                                           <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> Citation</label><br>  
+                                          <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> Legal events </label><br> 
+                                          <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA">Patent family </label>  
+                                        </form>
+                                </div>  
+                            </div>
+                            
+                    </div>
+                    <div class="selected-filter">
+                        <div class="overviewfilter">
+                            <p>Selected filter:</p><br>
+                        </div>
+                        <div class="savedelete">
+                            <button class="sdbtn">delete all </button>
+                           <button class="sdbtn">save</button> 
+                        </div>
+                    </div>
+                 </div>
+        </div>
+
+        <div class= "keywordSearch">
+                <h2>Keyword Search</h2>
+               <div class="searchbar" id="searchbar1">
+                <button class="foptions" id="kfbtn1">Keyword Filter</button>
+                  <div class="search-container">  
+                    <form action="/action_page.php">
+                        <input type="text" placeholder="Enter Keyword..." name="search1">
+                    </form>
+                   </div>
+                   <div>
+                        <button id="add1" onclick="addSearch()">+</button>   
+                        <form action="/action_page.php" id="boolean1">
+                          <select name="boolean" class="boolean">
+                              <option value="AND">AND</option>
+                              <option value="OR">OR</option>
+                              <option value="XOR">XOR</option>
+                          </select>
+                        </form> 
+                        <button class="squarebtn" id="minus1" onclick="deleteSearch1()">-</button>
+                  </div>  
+                </div>
+        </div>
+<!-- Start keywordfilter 1 -->
+                <div class="filterbox" id="kfilter1">
+                    <div class="subfilterbox">
+                        <div class="filter-container">
+                            <div class="filter">
+                                <p>Inventor</p>
+                                <div class="subfiltercontent">
+                                    <div class="subfiltersearch" id="inventorsearch">
+                                        <p><i class="fa fa-search"></i></p>
+                                        <form action="/action_page.php">
+                                            <input type="text" placeholder="Search for Inventor" name="inventor">
+                                        </form>
+                                    </div>
+                                    <div class="scroll">
+                                        
+                                        <form action="/action_page.php">
+                                          <input type="checkbox" id="IPC1" name="IPC1" value="A">
+                                          <label for="IPCA"> A</label><br>
+                                          <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> B</label><br>
+                                          <input type="checkbox" id="IPC3" name="IPC3" value="C">
+                                          <label for="IPCA"> C</label><br>
+                                          <input type="checkbox" id="IPC4" name="IPC4" value="D">
+                                          <label for="IPCA"> D</label><br>
+                                          <input type="checkbox" id="IPC5" name="IPC5" value="E">
+                                          <label for="IPCA"> E</label><br>
+                                          <input type="checkbox" id="IPC6" name="IPC6" value="F">
+                                          <label for="IPCA"> F</label><br>
+                                          <input type="checkbox" id="IPC7" name="IPC7" value="G">
+                                          <label for="IPCA"> G</label><br>
+                                          
+                                        </form>
+                                    </div>
+                                </div>  
+                            </div>
+                            <div class="filter">
+                                <p>Applicant</p>
+                                <div class="subfiltercontent">
+                                    <div class="subfiltersearch" id="inventorsearch">
+                                        <i class="fa fa-search"></i>
+                                        <form action="/action_page.php">
+                                            <input type="text" placeholder="Search for Applicant" name="applicant">
+                                        </form>
+                                    </div>
+                                    <div class="scroll">
+                                        
+                                        <form action="/action_page.php">
+                                          <input type="checkbox" id="IPC1" name="IPC1" value="A">
+                                          <label for="IPCA"> A</label><br>
+                                          <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> B</label><br>
+                                          <input type="checkbox" id="IPC3" name="IPC3" value="C">
+                                          <label for="IPCA"> C</label><br>
+                                          <input type="checkbox" id="IPC4" name="IPC4" value="D">
+                                          <label for="IPCA"> D</label><br>
+                                          <input type="checkbox" id="IPC5" name="IPC5" value="E">
+                                          <label for="IPCA"> E</label><br>
+                                          <input type="checkbox" id="IPC6" name="IPC6" value="F">
+                                          <label for="IPCA"> F</label><br>
+                                          <input type="checkbox" id="IPC7" name="IPC7" value="G">
+                                          <label for="IPCA"> G</label><br>
+                                          
+                                        </form>
+                                    </div>
+                                </div>  
+                            </div>
+                            <div class="filter">
+                                <p>Inventor Country</p>
+                                <div class="subfiltercontent">
+                                    <div class="subfiltersearch" id="inventorCsearch">
+                                        <p><i class="fa fa-search"></i></p>
+                                        <form action="/action_page.php">
+                                            <input type="text" placeholder="Search for Country" name="iCountry">
+                                        </form>
+                                    </div>
+                                    <div class="scroll">
+                                        
+                                        <form action="/action_page.php">
+                                          <input type="checkbox" id="IPC1" name="IPC1" value="A">
+                                          <label for="IPCA"> AD</label><br>
+                                          <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> AE</label><br>
+                                          <input type="checkbox" id="IPC3" name="IPC3" value="C">
+                                          <label for="IPCA"> AF</label><br>
+                                          <input type="checkbox" id="IPC4" name="IPC4" value="D">
+                                          <label for="IPCA"> AG</label><br>
+                                          <input type="checkbox" id="IPC5" name="IPC5" value="E">
+                                          <label for="IPCA"> AI</label><br>
+                                          <input type="checkbox" id="IPC6" name="IPC6" value="F">
+                                          <label for="IPCA"> AL</label><br>
+                                          <input type="checkbox" id="IPC7" name="IPC7" value="G">
+                                          <label for="IPCA">
+                                              AM</label><br>
+                                          
+                                        </form>
+                                    </div>
+                                </div>  
+                            </div>
+                            <div class="filter">
+                                <p>Applicant Country</p>
+                                <div class="subfiltercontent">
+                                    <div class="subfiltersearch" id="applicantCsearch">
+                                        <p><i class="fa fa-search"></i></p>
+                                        <form action="/action_page.php">
+                                            <input type="text" placeholder="Search for Country" name="aCountry">
+                                        </form>
+                                    </div>
+                                    <div class="scroll">
+                                        
+                                        <form action="/action_page.php">
+                                          <input type="checkbox" id="IPC1" name="IPC1" value="A">
+                                          <label for="IPCA"> AD</label><br>
+                                          <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> AE</label><br>
+                                          <input type="checkbox" id="IPC3" name="IPC3" value="C">
+                                          <label for="IPCA"> AF</label><br>
+                                          <input type="checkbox" id="IPC4" name="IPC4" value="D">
+                                          <label for="IPCA"> AG</label><br>
+                                          <input type="checkbox" id="IPC5" name="IPC5" value="E">
+                                          <label for="IPCA"> AI</label><br>
+                                          <input type="checkbox" id="IPC6" name="IPC6" value="F">
+                                          <label for="IPCA"> AL</label><br>
+                                          <input type="checkbox" id="IPC7" name="IPC7" value="G">
+                                          <label for="IPCA">
+                                              AM</label><br>
+                                          
+                                        </form>
+                                    </div>
+                                </div>  
+                            </div>
+                            <div class="filter">
+                                <p>Priority Date</p>
+                                <div class="subfiltercontent">
+                                    <div class="timeframe">
+                                        <p>from</p>
+                                        <div class="yearinput" id="frominput">
+                                        <form action="/action_page.php">
+                                            <input type="text" placeholder="1998" name="fromyear">
+                                        </form>
+                                        </div>
+                                    </div>
+                                    <div class="Timeframe">
+                                        <p>to</p>
+                                        <div class="yearinput" id="toinput">
+                                        <form action="/action_page.php">
+                                            <input type="text" placeholder="2009" name="toyear">
+                                        </form>
+                                        </div>
+                                    </div>
+                                    
+                                </div>  
+                            </div>
+                            <div class="filter">
+                                <p>Date of grant</p>
+                                <div class="subfiltercontent">
+                                    <div class="timeframe">
+                                        <p>from</p>
+                                        <div class="yearinput" id="frominput">
+                                        <form action="/action_page.php">
+                                            <input type="text" placeholder="1998" name="fromyear">
+                                        </form>
+                                        </div>
+                                    </div>
+                                    <div class="Timeframe">
+                                        <p>to</p>
+                                        <div class="yearinput" id="toinput">
+                                        <form action="/action_page.php">
+                                            <input type="text" placeholder="2009" name="toyear">
+                                        </form>
+                                        </div>
+                                    </div>
+                                    
+                                </div>  
+                            </div>
+                            
+                        </div>
+                        <div class="selected-filter">
+                                <div class="overviewfilter">
+                                    <p>Selected filter:</p><br>
+                                </div>
+                                <div class="savedelete">
+                                   <button class="sdbtn">delete all </button>
+                                   <button class="sdbtn">save</button> 
+                                </div>
+                        </div>
+                    </div>
+                </div>
+<!-- End keywordfilter 1 & start Searchbar 2-->
+                <div class="searchbar" id="searchbar2">
+                  <div class="search-container">
+                    <button class="foptions" id="kfbtn2">Keyword Filter</button> 
+                    <form action="/action_page.php">
+                      <input type="text" placeholder="Enter Keyword..." name="search2">
+                    </form>
+                    
+                    <button class="squarebtn" id="add2">+</button>   
+                    <button class="squarebtn" id="minus2" onclick="deleteSearch2()">-</button>  
+                  </div>
+                </div>
+<!-- Start keywordfilter 2 -->
+                  <div class="filterbox" id="kfilter2">
+                    <div class="subfilterbox">
+                        <div class="filter-container">
+                            <div class="filter">
+                                <p>Inventor</p>
+                                <div class="subfiltercontent">
+                                    <div class="subfiltersearch" id="inventorsearch">
+                                        <p><i class="fa fa-search"></i></p>
+                                        <form action="/action_page.php">
+                                            <input type="text" placeholder="Search for Inventor" name="inventor">
+                                        </form>
+                                    </div>
+                                    <div class="scroll">
+                                        
+                                        <form action="/action_page.php">
+                                          <input type="checkbox" id="IPC1" name="IPC1" value="A">
+                                          <label for="IPCA"> A</label><br>
+                                          <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> B</label><br>
+                                          <input type="checkbox" id="IPC3" name="IPC3" value="C">
+                                          <label for="IPCA"> C</label><br>
+                                          <input type="checkbox" id="IPC4" name="IPC4" value="D">
+                                          <label for="IPCA"> D</label><br>
+                                          <input type="checkbox" id="IPC5" name="IPC5" value="E">
+                                          <label for="IPCA"> E</label><br>
+                                          <input type="checkbox" id="IPC6" name="IPC6" value="F">
+                                          <label for="IPCA"> F</label><br>
+                                          <input type="checkbox" id="IPC7" name="IPC7" value="G">
+                                          <label for="IPCA"> G</label><br>
+                                          
+                                        </form>
+                                    </div>
+                                </div>  
+                            </div>
+                            <div class="filter">
+                                <p>Applicant</p>
+                                <div class="subfiltercontent">
+                                    <div class="subfiltersearch" id="inventorsearch">
+                                        <i class="fa fa-search"></i>
+                                        <form action="/action_page.php">
+                                            <input type="text" placeholder="Search for Applicant" name="applicant">
+                                        </form>
+                                    </div>
+                                    <div class="scroll">
+                                        
+                                        <form action="/action_page.php">
+                                          <input type="checkbox" id="IPC1" name="IPC1" value="A">
+                                          <label for="IPCA"> A</label><br>
+                                          <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> B</label><br>
+                                          <input type="checkbox" id="IPC3" name="IPC3" value="C">
+                                          <label for="IPCA"> C</label><br>
+                                          <input type="checkbox" id="IPC4" name="IPC4" value="D">
+                                          <label for="IPCA"> D</label><br>
+                                          <input type="checkbox" id="IPC5" name="IPC5" value="E">
+                                          <label for="IPCA"> E</label><br>
+                                          <input type="checkbox" id="IPC6" name="IPC6" value="F">
+                                          <label for="IPCA"> F</label><br>
+                                          <input type="checkbox" id="IPC7" name="IPC7" value="G">
+                                          <label for="IPCA"> G</label><br>
+                                          
+                                        </form>
+                                    </div>
+                                </div>  
+                            </div>
+                            <div class="filter">
+                                <p>Inventor Country</p>
+                                <div class="subfiltercontent">
+                                    <div class="subfiltersearch" id="inventorCsearch">
+                                        <p><i class="fa fa-search"></i></p>
+                                        <form action="/action_page.php">
+                                            <input type="text" placeholder="Search for Country" name="iCountry">
+                                        </form>
+                                    </div>
+                                    <div class="scroll">
+                                        
+                                        <form action="/action_page.php">
+                                          <input type="checkbox" id="IPC1" name="IPC1" value="A">
+                                          <label for="IPCA"> AD</label><br>
+                                          <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> AE</label><br>
+                                          <input type="checkbox" id="IPC3" name="IPC3" value="C">
+                                          <label for="IPCA"> AF</label><br>
+                                          <input type="checkbox" id="IPC4" name="IPC4" value="D">
+                                          <label for="IPCA"> AG</label><br>
+                                          <input type="checkbox" id="IPC5" name="IPC5" value="E">
+                                          <label for="IPCA"> AI</label><br>
+                                          <input type="checkbox" id="IPC6" name="IPC6" value="F">
+                                          <label for="IPCA"> AL</label><br>
+                                          <input type="checkbox" id="IPC7" name="IPC7" value="G">
+                                          <label for="IPCA">
+                                              AM</label><br>
+                                          
+                                        </form>
+                                    </div>
+                                </div>  
+                            </div>
+                            <div class="filter">
+                                <p>Applicant Country</p>
+                                <div class="subfiltercontent">
+                                    <div class="subfiltersearch" id="applicantCsearch">
+                                        <p><i class="fa fa-search"></i></p>
+                                        <form action="/action_page.php">
+                                            <input type="text" placeholder="Search for Country" name="aCountry">
+                                        </form>
+                                    </div>
+                                    <div class="scroll">
+                                        
+                                        <form action="/action_page.php">
+                                          <input type="checkbox" id="IPC1" name="IPC1" value="A">
+                                          <label for="IPCA"> AD</label><br>
+                                          <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> AE</label><br>
+                                          <input type="checkbox" id="IPC3" name="IPC3" value="C">
+                                          <label for="IPCA"> AF</label><br>
+                                          <input type="checkbox" id="IPC4" name="IPC4" value="D">
+                                          <label for="IPCA"> AG</label><br>
+                                          <input type="checkbox" id="IPC5" name="IPC5" value="E">
+                                          <label for="IPCA"> AI</label><br>
+                                          <input type="checkbox" id="IPC6" name="IPC6" value="F">
+                                          <label for="IPCA"> AL</label><br>
+                                          <input type="checkbox" id="IPC7" name="IPC7" value="G">
+                                          <label for="IPCA">
+                                              AM</label><br>
+                                          
+                                        </form>
+                                    </div>
+                                </div>  
+                            </div>
+                            <div class="filter">
+                                <p>Priority Date</p>
+                                <div class="subfiltercontent">
+                                    <div class="timeframe">
+                                        <p>from</p>
+                                        <div class="yearinput" id="frominput">
+                                        <form action="/action_page.php">
+                                            <input type="text" placeholder="1998" name="fromyear">
+                                        </form>
+                                        </div>
+                                    </div>
+                                    <div class="Timeframe">
+                                        <p>to</p>
+                                        <div class="yearinput" id="toinput">
+                                        <form action="/action_page.php">
+                                            <input type="text" placeholder="2009" name="toyear">
+                                        </form>
+                                        </div>
+                                    </div>
+                                    
+                                </div>  
+                            </div>
+                            <div class="filter">
+                                <p>Date of grant</p>
+                                <div class="subfiltercontent">
+                                    <div class="timeframe">
+                                        <p>from</p>
+                                        <div class="yearinput" id="frominput">
+                                        <form action="/action_page.php">
+                                            <input type="text" placeholder="1998" name="fromyear">
+                                        </form>
+                                        </div>
+                                    </div>
+                                    <div class="Timeframe">
+                                        <p>to</p>
+                                        <div class="yearinput" id="toinput">
+                                        <form action="/action_page.php">
+                                            <input type="text" placeholder="2009" name="toyear">
+                                        </form>
+                                        </div>
+                                    </div>
+                                    
+                                </div>  
+                            </div>
+                            
+                        </div>
+                        <div class="selected-filter">
+                                <div class="overviewfilter">
+                                    <p>Selected filter:</p><br>
+                                </div>
+                                <div class="savedelete">
+                                   <button class="sdbtn">delete all </button>
+                                   <button class="sdbtn">save</button> 
+                                </div>
+                        </div>
+                    </div>
+                </div>              
+<!-- End keywordfilter 2 -->
+        
+        <div class="imageSearch">
+            <h2>Image Search</h2>
+            <button class="foptions" id="ibtn">Image filter</button>
+            <div class="filterbox" id="ifilter">
+                <div class="subfilterbox">
+                    <div class="filter-container">
+                            <div class="filter">
+                                <p>Format</p>
+                                <div class="subfiltercontent">
+                                        <form action="/action_page.php">
+                                          <input type="checkbox" id="IPC1" name="IPC1" value="A">
+                                          <label for="IPCA"> Portrait</label><br>
+                                          <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> Landscape</label><br>
+                                        </form>
+                                </div>  
+                            </div>
+                            <div class="filter">
+                                <p>Type</p>
+                                <div class="subfiltercontent">
+                                        <form action="/action_page.php">
+                                          <input type="checkbox" id="IPC1" name="IPC1" value="A">
+                                          <label for="IPCA"> Construction Drawing</label><br>
+                                          <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> Plant Drawings</label><br>
+                                          <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> Reprint Drawings</label><br>  
+                                        </form>
+                                </div>  
+                            </div>
+                            <div class="filter">
+                                <p>Views</p>
+                                <div class="subfiltercontent">
+                                        <form action="/action_page.php">
+                                          <input type="checkbox" id="IPC1" name="IPC1" value="A">
+                                          <label for="IPCA"> Exploded Views</label><br>
+                                          <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> Partial Views</label><br>
+                                          <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> Sectional Views</label><br>
+                                          <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> Alternate Position </label><br>  
+                                           <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> Modified forms </label><br>  
+                                        </form>
+                                </div>  
+                            </div>
+                            <div class="filter">
+                                <p>Perspective</p>
+                                <div class="subfiltercontent">
+                                        <form action="/action_page.php">
+                                          <input type="checkbox" id="IPC1" name="IPC1" value="A">
+                                          <label for="IPCA"> Front</label><br>
+                                          <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> Rear</label><br>
+                                          <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> Right</label><br>
+                                          <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> Left </label><br>  
+                                           <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> Top </label><br>  
+                                          <input type="checkbox" id="IPC2" name="IPC2" value="B">
+                                          <label for="IPCA"> Bottom </label><br>   
+                                        </form>
+                                </div>  
+                            </div>
+                    </div>
+                    <div class="selected-filter">
+                                <div class="overviewfilter">
+                                    <p>Selected filter:</p><br>
+                                </div>
+                                <div class="savedelete">
+                                   <button class="sdbtn">delete all </button>
+                                   <button class="sdbtn">save</button> 
+                                </div>
+                            </div>
+                 </div>
+            </div>
+            <div class="image-container">
+                <div class= "sub-image-container">
+                     <div class="dragdrop" id="dropzone">
+                        
+                            <p>Drag and Drop Items here</p>
+                            <p>or</p>
+                            <div class="upload">
+                                <input type="file" id="fileUpload" accept="image/*" style="display: none"/>
+                                <button id="uploadButton" class="upload"><i class='fa fa-upload'></i></button>
+                            </div>
+                            
+                             
+                    </div>
+                    <div class= "url">
+                        <form action="/action_page.php">
+                            <input type="text" placeholder="Enter URL" name="url">
+                        </form>
+                         <button id="urlbtn"> add </button>
+                     </div>
+                </div>
+                <div class= "sub-image-container">
+                    <div class= "data">
+                        <p>image1.jpg</p>
+                        <p class= "x">x</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+</div>
+   
+</body>
+</html>
