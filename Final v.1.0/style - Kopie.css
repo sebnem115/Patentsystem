@@ -9,6 +9,7 @@
     /*Hover*/
     --mediumblue: #9fadbc;
     --lightblue: #ABB1CF;
+    --white: #fbfcfc;
 }
 
 
@@ -34,6 +35,27 @@ p {
   margin-top: auto;
   margin-bottom: auto;
   font-size: 20px;
+}
+
+
+
+#homebutton-link {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 22px;
+  font-family: 'Roboto';
+}
+
+#homebutton {
+  background-color: var(--darkblue);
+  height: 60px;
+  width: 60px;
+  border-radius: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5px;
 }
 
 button.bckbtn {
@@ -237,8 +259,33 @@ input {
   align-items: center;
 }
 
+#header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#homebutton-link {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 22px;
+  font-family: 'Roboto';
+}
+
+#homebutton {
+  background-color: var(--darkblue);
+  height: 60px;
+  width: 60px;
+  border-radius: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #button-container {
-  height: 50px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -249,13 +296,13 @@ input {
 .dropbtn {
   background-color: var(--darkblue);
   color: var(--white);
-  padding: 14px;
+  padding: 6px;
   font-size: 18px;
   border: none;
   cursor: pointer;
-  border-radius: 12px;
-  width: 185px;
-  height: 60px;
+  border-radius: 16px;
+  width: 175px;
+  height: 40px;
 }
 
 .dropdown {
@@ -266,21 +313,59 @@ input {
 .dropdown-content {
   display: none;
   position: absolute;
-  background: var(--mediumblue);
+  background: var(--darkblue);
+  opacity: 100%;
   box-shadow: 0px 4px 4px var(--shadow);
   border-radius: 12px;
   min-width: 100%;
 }
 
+.register-form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.register-form {
+  position: absolute;
+  background: var(--darkblue);
+  opacity: 100%;
+  border-radius: 12px;
+  min-width: 100%;
+  min-width: 200px;
+  color: var(--buttonwhite);
+  width: 400px; 
+  padding: 40px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: flex-start;
+  row-gap: 45px;
+}
+
+.register-label {
+  flex-grow: 1;
+  flex-basis: 29%;
+  color: var(--white);
+}
+
+.register-textfield {
+  flex-grow: 2;
+  flex-basis: 70%;
+  border-radius: 16px;
+  border: none;
+  height: 27px;
+}
+
 .login-mask {
   right: 0px;
-  min-width: 402px;
+  min-width: 200px;
   padding: 22px;
   color: var(--white);
 }
 
 .dropdown-content a {
-  color: var(--white)!important;
+  color: var(--white);
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -292,27 +377,22 @@ input {
 
 .header-btn {
   margin-top: 5px;
-  border-radius: 12px;
-  background-color: var(--white);
+  border-radius: 16px;
+  background-color: var(--darkerblue);
   border: none;
   padding: 5px;
-  font-weight: bold;
   cursor: pointer;
-  color: var(--darkblue);
-  width: 100%;
-  box-shadow: 2px 2px 4px #000;
+  color: white;
 }
 
-.header-btn:hover, .dwnldBtn:hover {
-  background-color: var(--darkblue);
-  color: var(--white);
+.header-btn:hover {
+  background-color: var(--mediumblue);
 }
 
 
 .dropdown-content a:hover {
-  background-color: var(--white);
+  background-color: var(--mediumblue);
   border-radius: 12px;
-  color: var(--darkblue)!important;
   
 }
 
@@ -321,7 +401,7 @@ input {
 }
 
 .dropdown:hover .dropbtn {
-  background-color: var(--darkblue);
+  background-color: var(--mediumblue);
 }
 
 .login-textfield {
@@ -345,6 +425,8 @@ input {
 .user-profile-settings-checkbox-container {
   display: block ruby;
 }
+
+
 
 
 .padder{
@@ -402,7 +484,6 @@ a {
 a:link, a:visited, a:active{
   text-decoration: none;
   font-weight: 700;
-  color: #000;  
 }
 
 a:hover{

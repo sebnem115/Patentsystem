@@ -20,6 +20,46 @@ function deleteImage(clickedId) {
     parentDiv.remove();
 }
 
+
+function register() {
+    var inputUsername = document.getElementById("username");
+    localStorage.setItem("username", inputUsername.value);
+    localStorage.setItem("loggedin", 1);
+    checkIfLoggedIn();
+    console.log("registered");
+  }
+  
+  function checkIfLoggedIn() {
+    var username = localStorage.getItem("username");
+    var loggedin = localStorage.getItem("loggedin");
+    if (username != null && loggedin == 1) {
+      $("#login-dropdown").addClass("hide-dropdown");
+      $("#login-dropdown").removeClass("dropdown");
+      $("#user-settings-dropdown").addClass("dropdown");
+      $("#user-settings-dropdown").removeClass("hide-dropdown");
+      $("#user-settings-dropdown-button").text(username);
+      console.log(username);
+    }
+  }
+  
+  function login() {
+    var inputUsernameLogin = document.getElementById("username-login");
+    console.log("logged in");
+    if(localStorage.getItem("username") == inputUsernameLogin.value) {
+      localStorage.setItem("loggedin", 1);
+      checkIfLoggedIn();
+    }
+  }
+  
+  function logout() {
+    localStorage.setItem("loggedin", 0);
+    $("#user-settings-dropdown").removeClass("dropdown");
+    $("#user-settings-dropdown").addClass("hide-dropdown");
+    $("#login-dropdown").removeClass("hide-dropdown");
+    $("#login-dropdown").addClass("dropdown");
+    $("#user-settings-dropdown-button").text(username);
+  }
+
 $(document).ready(function () {
 
     $('.fbtn').click(function(){
@@ -50,6 +90,20 @@ $(document).ready(function () {
     $("#uploadButton").click(function () {
         $("#fileUpload").trigger("click");
     });
+
+    $("body").on("click", ".register-btn",function(event){
+        $("#register-modal").addClass("show");
+    });
+
+    $("body").on("click", ".close",function(event){
+        $("#register-modal").removeClass("show");
+    })
+    
+    $("body").on("click", ".register-dialog-btn", function(event){
+        $("#register-modal").removeClass("show");
+    })
+
+    checkIfLoggedIn();
 
     var dropzone = document.getElementById('dropzone');
     // Optional.   Show the copy icon when dragging over.  Seems to only work for chrome.
