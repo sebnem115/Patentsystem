@@ -10,18 +10,15 @@ $(document).ready(function(){
    setRowNumbering();
 
    $("body").on("click", ".register-btn",function(event){
-      console.log("Button clicked");
-      $(".modal").addClass("show");
+      $("#register-modal").addClass("show");
     });
 
     $("body").on("click", ".close",function(event){
-      console.log("Button clicked");
-      $(".modal").removeClass("show");
+      $("#register-modal").removeClass("show");
     })
     
     $("body").on("click", ".register-dialog-btn", function(event){
-      console.log("Button clicked");
-      $(".modal").removeClass("show");
+      $("#register-modal").removeClass("show");
     })
 
     checkIfLoggedIn();

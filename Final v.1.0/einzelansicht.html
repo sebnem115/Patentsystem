@@ -1,0 +1,470 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet"> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style - Kopie.css?v=2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="javascript.js?v=1"></script>
+    <title>Ergebnis Einzelansicht</title>
+  </head>
+  <body id="body">
+       <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <div class="register-form-container">
+          <div class="register-form">
+              <label class="register-label" for="username">Username</label>
+              <input class="register-textfield" type="text" id="username">
+              <label class="register-label" for="username">E-Mail</label>
+              <input class="register-textfield" type="email" id="email">
+              <label class="register-label" for="username">Password</label>
+              <input class="register-textfield" type="password" id="password">
+              <label class="register-label" for="username">Confirm password</label>
+              <input class="register-textfield" type="password" id="confirm-password">
+              <button onclick="register()" class="header-btn register-dialog-btn">Create new account</button>
+              <button class="header-btn register-dialog-btn">Go back</button>
+          </div>
+        </div>
+      </div>
+      <div id="nav-container">
+        <div class="header">
+          <div class="padder">
+                  <div class="header_left_content">
+                    <button class="hdrbtn"></button>
+                    <button class="bckbtn"></button>
+                    <div id="bookmark">
+                    </div>
+                    <h1>VERTICAL WINDMILL</h1>  
+                    <p>JPWO2012073321A1</p>
+                  </div>
+                  <div class="header_right_content">
+                      <div class="dropdown">
+                        <button class="dropbtn">Language Settings</button>
+                        <div class="dropdown-content">
+                          <a href="#">Deutsch</a>
+                          <a href="#">English</a>
+                        </div>
+                      </div>
+                      <div id="login-dropdown" class="dropdown">
+                        <button class="dropbtn" type="button">Login</button>
+                        <div class="dropdown-content login-mask">
+                          <label for="username">Username: </label>
+                          <input class="login-textfield" type="text" id="username-login">
+                          <label for="username">Password: </label>
+                          <input class="login-textfield" type="password" id="password-login">
+                          <button onclick="login()" class="header-btn">Log into my account</button>
+                          <button class="header-btn register-btn">Register</button>
+                        </div>
+                      </div>
+                      <div id="user-settings-dropdown" class="hide-dropdown">
+                        <button id="user-settings-dropdown-button" class="dropbtn" type="button"></button>
+                        <div class="dropdown-content login-mask">
+                          <div class="user-profile-settings-container">
+                            <div>
+                              <span>User profile settings</span>
+                              <label for="username-change">Username</label>
+                              <input class="login-textfield" type="text" id="username-change">
+                            </div>
+                            <div>
+                              <span>Change password</span>
+                              <label for="password-change">Password</label>
+                              <input class="login-textfield" type="password" id="password-change">
+                              <label for="confirm-password-change">New Password</label>
+                              <input class="login-textfield" type="password" id="confirm-password-change">
+                            </div>
+                            <div>
+                              <span>Change e-mail</span>
+                              <label for="email-change">E-Mail</label>
+                              <input class="login-textfield" type="password" id="email-change">
+                              <label for="username">New E-Mail</label>
+                              <input class="login-textfield" type="password" id="confirm-password-change">
+                            </div>
+                            <div>
+                              <span>Data & Privacy</span>
+                              <div class="user-profile-settings-checkbox-container">
+                                <input type="checkbox" id="save-log-checkbox">
+                                <label for="save-log-checkbox">Save log in data</label>
+                              </div>
+                              <div class="user-profile-settings-checkbox-container">
+                                <input type="checkbox" id="save-search-history-checkbox">
+                                <label for="save-search-history-checkbox">Save search history</label>
+                            </div>
+                            <div class="user-profile-settings-checkbox-container">
+                                <input type="checkbox" id="allow-cookies-checkbox">
+                                <label for="allow-cookies-checkbox">Allow cookies</label>
+                            </div>
+                            </div>
+                            <button class="header-btn">Legal Disclosure</button>
+                            <button class="header-btn">Privacy</button>
+                            <button class="header-btn">Save</button>
+                            <button onclick="logout()" class="header-btn">Logout</button>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+        </div>
+        <div class="padder">
+          <div id="nav">
+            <a href="#bibliographic_data" class="nav-link active">Bibliographic Data</a>
+            <a href="#description" class="nav-link">Description</a>
+            <a href="#claims" class="nav-link">Claims</a>
+            <a href="#drawing" class="nav-link">Drawing</a>
+            <a href="#download" class="nav-link">Download-Area</a>
+            <a href="#citations" class="nav-link">Citations</a>
+            <a href="#legal_events" class="nav-link">Legal Events</a>
+            <a href="#patent_family" class="nav-link">Patent Family</a>
+          </div>
+        </div>
+      </div>
+      <section id="bibliographic_data">
+        <div class="bibliographic_data_container">
+                <h1>Bibliographic Data</h1>
+                <div class="bibliographic_data">
+                  <div class="left">
+                    <div class="left_content">
+                      Applicants
+                      <br>
+                      Inventors
+                      <br><br>
+                      Classification
+                      <br>
+                      IPC
+                      <br>
+                      CPC
+                      <br><br>
+                      Priorities
+                      <br>
+                      Application
+                      <br>
+                      Publication
+                      <br><br>
+                      Published as
+                    </div>
+                    <div class="right_content">
+                      CNO CO LTD [JP]; SUGISAKI KEN [JP]
+                      SUGISAKI KEN [JP]
+                      <br><br><br>
+                      <a href="#"><b>F03D3/06;</b></a>  
+                      <br>
+                      <a href="#"><b>F03D3/064 (EP);</b> Y02E10/74 (EP);</a>  
+                      <br><br>
+                      JP2010071336W·2010-11-30
+                      <br>
+                      JP2010071336W·2010-11-30
+                      <br>
+                      WO2012073321A1·2012-06-07
+                      <br><br>
+                      <b>JPWO2012073321A1</b>;WO2012073321A1
+                    </div>
+                  </div>
+                  <div class="right">
+                    <b>VERTICAL SHAFT WINDMILL</b>
+                    <br><br>
+                    Abstract
+                    <br><br>
+                    [Problem] Conventional vertical shaft windmills struggled to obtain good rotation starting properties, because drag operated more strongly than lift force in low wind regions. The purpose of the present invention is to provide a vertical shaft windmill capable of efficient rotation even in low wind regions. [Solution] In order to solve said issue, the present invention provides a vertical shaft windmill comprising a cylindrical rotating shaft and a plurality of blades supported by the cylindrical rotating shaft via a blade supporting arm. The interval between the blades and the cylindrical rotating shaft is at or below the length of the blades in the vertical direction.
+                  </div>
+                </div>
+              </div>
+      </section>
+      <section id="description"> 
+        <div  class="description"> 
+              <div class="left">
+                     <h1>Description</h1>
+                    
+                    <p id="p0033" num="0033">
+                    Referring again to
+                    <figref idref="f0001">
+                        FIG. 1A
+                    </figref>
+                    , the motor vehicle 100, the engine 104 and/or the ECU 106 can facilitate information transfer
+                    between components of the motor vehicle 100 and/or can facilitate control of the components of motor
+                    vehicle 100. For example, the components of the motor vehicle 100 can include vehicle systems and
+                    vehicle sensors. As shown in the embodiments of
+                    <figref idref="f0001">
+                        FIG. 1A
+                    </figref>
+                    and
+                    <figref idref="f0002">
+                        FIG. 2
+                    </figref>
+                    , the motor vehicle 100 can include various systems, including vehicle systems 126. The vehicle
+                    systems 126 can include, but are not limited to, any automatic or manual systems that can be used to
+                    enhance the vehicle, driving, and/or safety. The motor vehicle 100 and/or the vehicle systems 126
+                    can include one or more vehicle sensors for sensing and measuring a stimulus (e.g., a signal, a
+                    property, a
+                    <!-- EPO <DP n="29"> -->
+                    measurement, a quantity) associated with the motor vehicle 100 and/or a particular vehicle system.
+                    In some embodiments, the ECU 106 can communicate and obtain data representing the stimulus from the
+                    vehicle systems 126 and/or the one or more vehicle sensors via, for example, a port 128. The data
+                    can be vehicle information and/or the ECU 106 can process the data into vehicle information and/or
+                    process the vehicle information further. Thus, the ECU 106 can communicate and obtain vehicle
+                    information from the motor vehicle 100, the vehicle systems 126 themselves, one or more vehicle
+                    sensors associated with the vehicle systems 126, or other vehicle sensors, for example, cameras,
+                    external radar and laser sensors, among others.
+                </p>
+              </div>
+              <div class="right">
+                <div class="top">
+                  <img id="des_img">
+                </div>
+              </div>
+            </div>  
+      </section>
+      <section id="claims">
+          <div class="claims">
+              <h1>Claims</h1>
+                1. A vertical shaft type wind turbine comprising a cylindrical rotary shaft and a plurality of blades supported on a cylindrical rotary shaft with a blade support arm, wherein a distance between the blade and the cylindrical rotary shaft is set to be equal to a vertical direction A vertical axis type windmill having a length equal to or less than the length of the windmill.
+                <br><br>
+                2. The vertical shaft type wind turbine according to claim 1, wherein a distance between the blade and the cylindrical rotation axis is equal to or less than a half of a length of the blade in the vertical direction.
+                <br><br>
+                3. The vertical shaft type wind turbine according to claim 1 or 2, wherein a diameter of the cylindrical rotation shaft is substantially equal to a chord length of the blade.
+                <br><br>
+                4. The vertical axis wind turbine according to claim 1, wherein a length of the cylindrical rotation shaft in the vertical direction is substantially the same as a length of the blade in the vertical direction. 5.
+                <br><br>
+                5. The vertical axis windmill according to any one of claims 1 to 4, wherein a horizontal width of the blade supporting arm is 30 to 50% of a length of the blade in the rotational direction.
+                <br><br>
+                6. The vertical blade according to claim 1, wherein a rectifying window surrounded by the blade supporting arm, the cylindrical rotary shaft, and the blade is formed by supporting the blade at upper and lower two positions of the blade supporting arm Shaft type windmill.
+                <br><br>
+                7. The vertical shaft type wind turbine according to claim 6, wherein a distance between the blade and the cylindrical rotation axis is substantially half of an interval between the upper and lower blade support arms.
+                <br><br>
+                8. The vertical shaft type wind turbine according to claim 1, further comprising a generator that shares a shaft with the 
+            </div>
+      </section>
+      <section id="drawing">
+          <div  class="drawing">
+              <h1>Drawing</h1>
+                <div class="drawings">
+                 <div class="row1">
+                   <div class="first">
+                    <img id="img" src="images/1.png" onclick="image(this);">
+                    <span class="tooltiptext">Drawing page 1 of 12</span>
+                   </div>
+                   <div class="second">
+                    <img id="img" src="images/2.png" onclick="image(this);">
+                    <span class="tooltiptext">Drawing page 2 of 12</span>
+                    </div>
+                   <div class="third">
+                    <img id="img" src="images/3.png" onclick="image(this);">
+                    <span class="tooltiptext">Drawing page 3 of 12</span>
+                   </div>
+                   <div  class="four">
+                    <img id="img" src="images/4.png" onclick="image(this);">
+                    <span class="tooltiptext">Drawing page 4 of 12</span>
+                   </div>
+                 </div>
+                 <div class="row2" id="ghoster">
+                   <div  class="first">
+                    <img id="img" src="images/5.png" onclick="image(this);">
+                    <span class="tooltiptext">Drawing page 5 of 12</span>
+                   </div>
+                   <div class="second">
+                    <img id="img" src="images/6.png" onclick="image(this);">
+                    <span class="tooltiptext">Drawing page 6 of 12</span>
+                   </div>
+                   <div class="third">
+                    <img id="img" src="images/7.png" onclick="image(this);">
+                    <span class="tooltiptext">Drawing page 7 of 12</span>
+                   </div>
+                   <div class="four">
+                    <img id="img" src="images/8.png" onclick="image(this);">
+                    <span class="tooltiptext">Drawing page 8 of 12</span>
+                   </div>
+                 </div>
+                 <div class="row3" id="ghoster">
+                   <div class="first">
+                    <img id="img" src="images/9.png" onclick="image(this);">
+                    <span class="tooltiptext">Drawing page 9 of 12</span>
+                   </div>
+                   <div class="second">
+                    <img id="img" src="images/10.png" onclick="image(this);">
+                    <span class="tooltiptext">Drawing page 10 of 12</span>
+                   </div>
+                   <div class="third">
+                    <img id="img" src="images/11.png" onclick="image(this);">
+                    <span class="tooltiptext">Drawing page 11 of 12</span>
+                   </div>
+                   <div class="four">
+                    <img id="img" src="images/12.png" onclick="image(this);">
+                    <span class="tooltiptext">Drawing page 12 of 12</span>
+                   </div>
+                 </div>
+               </div>
+      </section>
+      <section id="download">
+         <div class="downloadArea">
+            <h1>Download-Area</h1>
+            <div class="dwnldInpt">
+              <div class="margin">
+                <input type="checkbox" id="downloadAll" name="scales" unchecked>
+                <label for="scales">Download the whole patent specification</label>
+              </div>
+              <div class="margin">
+                <input type="checkbox" id="downloadText" name="scales" unchecked>
+                <label for="scales">Download only Text</label>
+              </div>
+              <div class="margin">
+                <input type="checkbox" id="downloadAll" name="scales" unchecked>
+                <label for="scales">Download all drawings</label>
+              </div>  
+              <div class="margin">
+                <input type="checkbox" id="downloadAll" name="scales" unchecked>
+                <label for="scales">Select drawings for download</label>
+                <div id="dwnldDrpdwn"></div>
+                <div class="slctr">Selected: 0/12</div>
+                <button id="show" class="dwnldBtn">Download</button>
+              </div>
+              <div id="this" class="slctDrwngs">
+                <div class="row1">
+                   <div class="first">
+                    <img id="img" src="images/1.png" onclick="image(this);">
+                    <input type="checkbox" id="slctImg" name="scales" unchecked>
+                   </div>
+                   <div class="second">
+                    <img id="img" src="images/2.png" onclick="image(this);">
+                    <input type="checkbox" id="slctImg" name="scales" unchecked>
+                    </div>
+                   <div class="third">
+                    <img id="img" src="images/3.png" onclick="image(this);">
+                    <input type="checkbox" id="slctImg" name="scales" unchecked>
+                   </div>
+                   <div  class="four">
+                    <img id="img" src="images/4.png" onclick="image(this);">
+                    <input type="checkbox" id="slctImg" name="scales" unchecked>
+                   </div>
+                 </div>
+                 <div class="row2" id="ghoster">
+                   <div  class="first">
+                    <img id="img" src="images/5.png" onclick="image(this);">
+                    <input type="checkbox" id="slctImg" name="scales" unchecked>
+                   </div>
+                   <div class="second">
+                    <img id="img" src="images/6.png" onclick="image(this);">
+                    <input type="checkbox" id="slctImg" name="scales" unchecked>
+                   </div>
+                   <div class="third">
+                    <img id="img" src="images/7.png" onclick="image(this);">
+                    <input type="checkbox" id="slctImg" name="scales" unchecked>
+                   </div>
+                   <div class="four">
+                    <img id="img" src="images/8.png" onclick="image(this);">
+                    <input type="checkbox" id="slctImg" name="scales" unchecked>
+                   </div>
+                 </div>
+                 <div class="row3" id="ghoster">
+                   <div class="first">
+                    <img id="img" src="images/9.png" onclick="image(this);">
+                    <input type="checkbox" id="slctImg" name="scales" unchecked>
+                   </div>
+                   <div class="second">
+                    <img id="img" src="images/10.png" onclick="image(this);">
+                    <input type="checkbox" id="slctImg" name="scales" unchecked>
+                   </div>
+                   <div class="third">
+                    <img id="img" src="images/11.png" onclick="image(this);">
+                    <input type="checkbox" id="slctImg" name="scales" unchecked>
+                   </div>
+                   <div class="four">
+                    <img id="img" src="images/12.png" onclick="image(this);">
+                    <input type="checkbox" id="slctImg" name="scales" unchecked>
+                   </div>
+              </div>
+            </div>
+          </div>
+      </section>
+      <section id="citations"> 
+          <div>
+            <h1>Citations</h1>
+                <div class="pat-cit">
+           
+            <h2>Patent-literature citations</h2>
+            <p id="descPatCit">This list of references cited by the applicant is for the reader's convenience only. It does not form part of the European patent document. Even though great care has been taken in compiling the references, errors or omissions cannot be excluded and the EPO disclaims all liability in this regard.</p>
+            <table id="pat-cit"><thead><tr><th>Country</th><th>Doc-Number</th><th>Kind</th><th>Name</th><th>Publication Date</th><th>Crossref</th></tr></thead><tbody><tr><td>US</td><td>74424715</td><td></td><td></td><td>2015.06.19</td><td>[0039]</td></tr><tr><td>US</td><td>73383615</td><td></td><td></td><td>2015.06.08</td><td>[0072]</td></tr><tr><td>US</td><td>69759315</td><td></td><td></td><td>2015.04.27</td><td>[0100]</td></tr><tr><td>US</td><td>8941499</td><td>B</td><td></td><td>2015.01.27</td><td>[0001]</td></tr><tr><td>US</td><td>20140371984</td><td>A</td><td></td><td>2014.12.18</td><td>[0001]</td></tr><tr><td>US</td><td>57377814</td><td></td><td></td><td>2014.12.17</td><td>[0229]</td></tr><tr><td>US</td><td>20140309881</td><td>A</td><td></td><td>2014.10.16</td><td>[0001]</td></tr><tr><td>US</td><td>46153014</td><td></td><td></td><td>2014.08.18</td><td>[0001]</td></tr><tr><td>US</td><td>31572614</td><td></td><td></td><td>2014.06.26</td><td>[0001]</td></tr><tr><td>US</td><td>8698639</td><td>B</td><td></td><td>2014.04.15</td><td>[0001]</td></tr><tr><td>US</td><td>20150126818</td><td>A</td><td></td><td>2013.11.07</td><td>[0146]</td></tr><tr><td>US</td><td>20130245886</td><td>A</td><td></td><td>2013.09.19</td><td>[0001]</td></tr><tr><td>US</td><td>20130226408</td><td>A</td><td></td><td>2013.08.29</td><td>[0001]</td></tr><tr><td>US</td><td>20140303899</td><td>A</td><td></td><td>2013.04.06</td><td>[0265]</td></tr><tr><td>US</td><td>84319413</td><td></td><td></td><td>2013.03.15</td><td>[0001]</td></tr><tr><td>US</td><td>84324913</td><td></td><td></td><td>2013.03.15</td><td>[0001]</td></tr><tr><td>US</td><td>20140276112</td><td>A</td><td></td><td>2013.03.15</td><td>[0113]</td></tr><tr><td>US</td><td>84307713</td><td></td><td></td><td>2013.03.15</td><td>[0336]</td></tr><tr><td>US</td><td>20120202176</td><td>A</td><td></td><td>2012.08.09</td><td>[0001]</td></tr><tr><td>US</td><td>19567511</td><td></td><td></td><td>2011.08.01</td><td>[0001]</td></tr><tr><td>US</td><td>03063711</td><td></td><td></td><td>2011.02.18</td><td>[0001]</td></tr><tr><td>US</td><td>20130038735</td><td>A</td><td>Nishiguichi</td><td>2011.02.16</td><td>[0064]</td></tr><tr><td>US</td><td>02332311</td><td></td><td></td><td>2011.02.08</td><td>[0001]</td></tr><tr><td>US</td><td>8558718</td><td>B</td><td></td><td>2010.09.20</td><td>[0059]</td></tr><tr><td>US</td><td>8587418</td><td>B</td><td>Mochizuki</td><td>2010.07.28</td><td>[0059]</td></tr><tr><td>US</td><td>8423257</td><td>B</td><td>Ellis</td><td>2010.03.17</td><td>[0050]</td></tr><tr><td>US</td><td>8426257</td><td>B</td><td>Ellis</td><td>2010.03.17</td><td>[0550]</td></tr><tr><td>US</td><td>8063754</td><td>B</td><td>Tanida</td><td>2007.12.17</td><td>[0061]</td></tr><tr><td>US</td><td>7806486</td><td>B</td><td>Bitz</td><td>2007.05.24</td><td>[0053]</td></tr><tr><td>US</td><td>7497471</td><td>B</td><td></td><td>2006.02.27</td><td>[0036]</td></tr><tr><td>US</td><td>7497299</td><td>B</td><td></td><td>2006.02.27</td><td>[0036]</td></tr><tr><td>US</td><td>7280903</td><td>B</td><td>Arai</td><td>2005.08.31</td><td>[0058]</td></tr><tr><td>US</td><td>7337056</td><td>B</td><td></td><td>2005.03.23</td><td>[0056]</td></tr><tr><td>US</td><td>6908161</td><td>B</td><td>Ingaki</td><td>2003.11.18</td><td>[0051]</td></tr><tr><td>US</td><td>6607255</td><td>B</td><td>Bond</td><td>2002.01.17</td><td>[0060]</td></tr><tr><td>US</td><td>6292737</td><td>B</td><td>Higashimata</td><td>2000.05.19</td><td>[0056]</td></tr><tr><td>US</td><td>6309029</td><td>B</td><td>Wakabayashi</td><td>1999.11.17</td><td>[0052]</td></tr><tr><td>US</td><td>6164700</td><td>A</td><td>Masuda</td><td>1999.04.20</td><td>[0068]</td></tr><tr><td>US</td><td>6092619</td><td>A</td><td>Nishikawa</td><td>1997.05.07</td><td>[0063]</td></tr><tr><td>DE</td><td>102008042342</td><td>A</td><td></td><td>..</td><td>[0004]</td></tr><tr><td>US</td><td>074710</td><td></td><td></td><td>..</td><td>[0146]</td></tr></tbody></table>
+          </div>
+      </section>
+      <section id="legal_events">
+        <div class="legal_events">
+              <h1>Legal Events</h1>
+                <table>
+                <thead class="legal_th">
+                  <tr>
+                    <th>Event indicator</th>
+                    <th>Category</th>
+                    <th>Event description</th>
+                    <th>Countries</th>
+                    <th>Event date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>WO 121</td>
+                    <td>W: Other</td>
+                    <td>EP: THE EPO HAS BEEN INFORMED BY WIPO THAT EP WAS DESIGNATED IN THIS APPLICATION</td>
+                    <td>EP</td>
+                    <td>2012-07-25</td>
+                  </tr>
+                  <tr>
+                    <td>DE NENP</td>
+                    <td>A: Application filing</td>
+                    <td>NON-ENTRY INTO THE NATIONAL PHASE</td>
+                    <td></td>
+                    <td>2013-05-31</td>
+                  </tr>
+                   <tr>
+                    <td>JP ENP</td>
+                    <td>A: Application filing</td>
+                    <td>ENTRY INTO THE NATIONAL PHASE</td>
+                    <td></td>
+                    <td>2013-08-13</td>
+                  </tr>
+                  <tr>
+                    <td>WO 122</td>
+                    <td>A: Application filing</td>
+                    <td>EP: PCT APPLICATION NON-ENTRY IN EUROPEAN PHASE</td>
+                    <td>EP</td>
+                    <td>2013-12-25</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+      </section>
+      <section id="patent_family">
+           <div class="patent_family">
+              <h1>Patent Family</h1>
+               <table>
+                <thead>
+                  <tr> 
+                    <th>Publication</th>
+                    <th>Application number</th>
+                    <th>Title</th>
+                    <th>Publication date</th>
+                    <th>Applicants</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>JPWO2012073321A1</td>
+                    <td>JP2012546603A</td>
+                    <td>垂直軸型風車</td>
+                    <td>2014-05-19</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>WO2012073321A1</td>
+                    <td>JP2012546603A</td>
+                    <td>VERTICAL SHAFT WINDMILL</td>
+                    <td>2012-06-07</td>
+                    <td>CNO CO LTD [JP]</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+      </section>
+  </body>
+</html>

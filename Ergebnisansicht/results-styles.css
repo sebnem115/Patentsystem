@@ -2,7 +2,9 @@
   --textcolor: #161616;
   --white: #fbfcfc;
   --buttongrey: rgba(171, 177, 207, 0.5);
+  --buttonwhite: white;
   --darkblue: #455463;
+  --darkerblue: #557697;
   /* Hover Farbe */
   --mediumblue: #9fadbc;	
   --lightblue: #ABB1CF, 50%;
@@ -53,14 +55,14 @@ button:hover {
 #homebutton-link {
   color: var(--white);
   text-decoration: none;
-  font-size: 48px;
+  font-size: 22px;
   font-family: 'Roboto';
 }
 
 #homebutton {
   background-color: var(--darkblue);
-  height: 124px;
-  width: 124px;
+  height: 60px;
+  width: 60px;
   border-radius: 100%;
   text-align: center;
   display: flex;
@@ -80,13 +82,13 @@ button:hover {
 .dropbtn {
   background-color: var(--darkblue);
   color: var(--white);
-  padding: 14px;
+  padding: 6px;
   font-size: 18px;
   border: none;
   cursor: pointer;
   border-radius: 16px;
   width: 175px;
-  height: 96px;
+  height: 40px;
 }
 
 .dropdown {
@@ -97,7 +99,7 @@ button:hover {
 .dropdown-content {
   display: none;
   position: absolute;
-  background: #653634cc;
+  background: var(--darkblue);
   opacity: 100%;
   box-shadow: 0px 4px 4px var(--shadow);
   border-radius: 12px;
@@ -111,7 +113,7 @@ button:hover {
 
 .register-form {
   position: absolute;
-  background: #653634cc;
+  background: var(--darkblue);
   opacity: 100%;
   border-radius: 12px;
   min-width: 100%;
@@ -161,7 +163,7 @@ button:hover {
 .header-btn {
   margin-top: 5px;
   border-radius: 16px;
-  background-color: #653634;
+  background-color: var(--darkerblue);
   border: none;
   padding: 5px;
   cursor: pointer;
@@ -169,12 +171,12 @@ button:hover {
 }
 
 .header-btn:hover {
-  background-color: #4B120F;
+  background-color: var(--mediumblue);
 }
 
 
 .dropdown-content a:hover {
-  background-color: #653634;
+  background-color: var(--mediumblue);
   border-radius: 12px;
   
 }
@@ -184,7 +186,7 @@ button:hover {
 }
 
 .dropdown:hover .dropbtn {
-  background-color: var(--menured);
+  background-color: var(--mediumblue);
 }
 
 .login-textfield {
@@ -307,7 +309,7 @@ select {
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
 }
-#myModal {
+#register-modal {
   padding-top: 100px; /* Location of the box */
 }
 
