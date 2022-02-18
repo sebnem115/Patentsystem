@@ -17,7 +17,7 @@ body{
 	margin: 0 auto;
 	padding: 0;
 	position: absolute;
-	overflow: hidden;
+	overflow: auto;
 	left: 0;
 	right: 0;
 	top: 0;
@@ -138,7 +138,7 @@ button:hover {
 .searchHeader{
     background-color: var(--white);
     width: 100%;
-    z-index= 2;
+    z-index: 2;
     border-bottom: solid var(--grey);
     box-shadow: 2px 2px 5px var(--shadow);
 }
@@ -218,7 +218,7 @@ button:hover {
 }
 .search-container input[type=text] {
   float: left;  
-  width: 800px;
+  width: 100%;
   height: 40px;
   padding: 0px 15px 0px 15px;
   margin-right: 5px;
@@ -245,7 +245,17 @@ button:hover {
     flex-direction: column;
     align-content: center;
     padding:10px;
+    width: 50%;
 }
+
+#search-image-container {
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
 .dragdrop{
     display: flex;
     flex-direction: column;
@@ -269,11 +279,16 @@ button:hover {
   margin-left: 45%;  
 
 }
-.url{
+.url {
     display: flex;
 }
+
+.url * {
+    width: 100%;
+}
+
 .url input[type=text]{
-    width: 800px;
+    width: 100%;
     border-radius: 5px 0px 0px 5px;
     height: 35px;
     border-color: var(--buttongrey);
@@ -288,15 +303,21 @@ button:hover {
 }
 
 
-.data{
+.data {
   display: flex;  
     background-color: var(--buttongrey);;
   border-radius: 20px;
    padding: 5px 10px 5px 10px; 
+   align-items: center;
+   margin-bottom: 5px;
+   margin-right: 5px;
+   height: 40px;
 }
-.x{
+
+.delete-image {
     margin-left: 10px;
     color: var(--shadow);
+    cursor: pointer;
 }
 /*Filter-Section*/
 .filterbox{
@@ -371,4 +392,10 @@ button:hover {
     font-size: 12px;
     padding: 2.5px;
     margin-right: 0;
+}
+
+.searchImage {
+    max-width: 30px;
+    height: auto;
+    margin-right: 5px;
 }

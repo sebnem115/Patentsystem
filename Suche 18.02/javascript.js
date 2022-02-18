@@ -13,8 +13,13 @@ function deleteSearch2() {
     document.getElementById('minus1').style.display = 'none';
     document.getElementById('boolean1').style.display='none';
     document.getElementById('add1').style.display='inline';
-
 }
+
+function deleteImage(clickedId) {
+    var parentDiv = document.getElementById(clickedId).parentNode;
+    parentDiv.remove();
+}
+
 $(document).ready(function () {
 
     $('.fbtn').click(function(){
@@ -62,16 +67,26 @@ $(document).ready(function () {
         for (var i=0, file; file=files[i]; i++) {
             if (file.type.match(/image.*/)) {
                 var reader = new FileReader();
-
+                var textNode = document.createElement('p');
+                textNode.innerHTML = file.name;
+                var closeNode = document.createElement('p');
+                closeNode.classList.add("delete-image");
+                closeNode.innerHTML = 'x';
+                var img = document.createElement('img');
+                var div = document.createElement("div");
+                reader.fileName = file.name;
                 reader.onload = function(e2) {
                     // finished reading file data.
-                    var img = document.createElement('img');
                     img.classList.add('searchImage');
-                    img.src= e2.target.result;
-                    document.getElementById('dropzone').firstElementChild.remove();
-                    document.getElementById('dropzone').appendChild(img);
+                    img.src=e2.target.result;
+                    div.classList.add('data');
+                    closeNode.setAttribute('id', e2.target.fileName);
+                    closeNode.setAttribute('onClick', 'deleteImage(this.id)');
+                    document.getElementById('search-image-container').appendChild(div);
+                    div.appendChild(img);
+                    div.appendChild(textNode);
+                    div.appendChild(closeNode);
                 }
-
                 reader.readAsDataURL(file); // start reading the file data.
             }
         }
@@ -84,13 +99,24 @@ $(document).ready(function () {
             var file = e.originalEvent.srcElement.files[i];
             if (file.type.match(/image.*/)) {
                 var reader = new FileReader();
+                var textNode = document.createElement('p');
+                textNode.innerHTML = file.name;
+                var closeNode = document.createElement('p');
+                closeNode.classList.add("delete-image");
+                closeNode.innerHTML = 'x';
+                var img = document.createElement('img');
+                var div = document.createElement("div");
                 reader.onload = function(e2) {
                     // finished reading file data.
-                    var img = document.createElement('img');
                     img.classList.add('searchImage');
-                    img.src= e2.target.result;
-                    document.getElementById('dropzone').firstElementChild.remove();
-                    document.getElementById('dropzone').appendChild(img);
+                    img.src=e2.target.result;
+                    div.classList.add('data');
+                    closeNode.setAttribute('id', file.name);
+                    closeNode.setAttribute('onClick', 'deleteImage(this.id)');
+                    document.getElementById('search-image-container').appendChild(div);
+                    div.appendChild(img);
+                    div.appendChild(textNode);
+                    div.appendChild(closeNode);
                 }
                 reader.readAsDataURL(file);
                 $("#fileUpload").after(img);
