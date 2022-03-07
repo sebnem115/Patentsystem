@@ -1,0 +1,88 @@
+:root {
+    --textcolor: #161616;
+    --white: #fbfcfc;
+    --buttongrey: rgba(171, 177, 207, 0.5);
+    --buttonwhite: white;
+    --darkblue: #455463;
+    --darkerblue: #557697;
+    /* Hover Farbe */
+    --mediumblue: #9fadbc;	
+    --lightblue: #ABB1CF, 50%;
+    --buttonhover: #fbfcfc;
+    --shadow:#6f7172;
+    --grey: #dfe3e5;
+  }
+  
+  body {
+    color: var(--textcolor) ;
+    font-family: 'Roboto';
+    font-size: 16px;
+    background-color: var(--white);
+    margin: 0 auto;
+    padding:0;
+    position:absolute;
+    top:1%;
+    bottom:2.5%;
+    padding: 1%;
+  }
+  
+  /* Style Buttons */
+  .button {
+    background: var(--buttongrey);
+    font-size: 17px;
+    border: none; 
+    /*Methode um den Inhalt der Buttons vertikal und horizontal zu zentrieren*/
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    /* */
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px var(--shadow);  
+  }
+  
+  button:hover {
+    background: var(--buttonhover);
+  }
+  
+  #header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+   }
+  
+  #homebutton-link {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 22px;
+    font-family: 'Roboto';
+  }
+  
+  #homebutton {
+    background-color: var(--darkblue);
+    height: 60px;
+    width: 60px;
+    border-radius: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+  }
+  #homebutton:hover {
+    background-color: var(--mediumblue);
+    transform: scale(1.2);
+    transition: 0.5s all ease;
+  }
+  
+  .button-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+  }
+  
