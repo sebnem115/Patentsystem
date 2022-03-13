@@ -1,42 +1,11 @@
-:root {
-    --textcolor: #161616;
-    --white: #fbfcfc;
-    --buttongrey: rgba(171, 177, 207, 0.5);
-    --darkblue: #455463;
-    /* Hover Farbe */
-    --mediumblue: #9fadbc;	
-    --lightblue: #ABB1CF 50%;
-    --buttonhover: #fbfcfc;
-    --shadow:#6f7172;
-    --grey: #dfe3e5;
-    --textcolor: #161616;
-    --white: #fbfcfc;
-    --buttongrey: rgba(171, 177, 207, 0.5);
-    --buttonwhite: white;
-    --darkblue: #455463;
-    --darkerblue: #557697;
-    /* Hover Farbe */
-    --mediumblue: #9fadbc;	
-    --lightblue: #ABB1CF, 50%;
-    --buttonhover: #fbfcfc;
-    --shadow:#6f7172;
-    --grey: #dfe3e5;
-}
-
 body{
  	font-size: 16px;
 	background-color: var (--grey);
 	line-height: 1,5;
-	margin: 0 auto;
-	padding: 0;
-	position: absolute;
 	overflow: auto;
 	left: 0;
 	right: 0;
-	top: 1%;
 	bottom: 2.5%;
-	color: var(--textcolor);
-	font-family: ‘Roboto’, sans-serif;
 	z-index: 2;
   padding: 1%;
 }
@@ -49,6 +18,7 @@ h1{
     margin-bottom: 5px;
 }
 
+/*in root als .button --> überprüfen auf Abweichungen*/
 button {
   width: 100px;
   height: 40px;  
@@ -75,7 +45,7 @@ button:hover {
   background: var(--mediumblue);
 }
 
-/*********************** HEADER ************************* --> root css/
+/*********************** HEADER ************************* --> root css*/
 #header {
     display: flex;
     flex-direction: row;
