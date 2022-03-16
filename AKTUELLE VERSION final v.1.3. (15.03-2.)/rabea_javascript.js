@@ -40,7 +40,9 @@ function queryChanged() {
         if(keywordDropdown.val() != null){
             query += keywordDropdown.val();
             query += '=';
-        } 
+        } else {
+            return;
+        }
         query += '"';
         query += searchinput.val();
         query += '" ';
@@ -49,35 +51,50 @@ function queryChanged() {
         query += " ";
         
     })
-    
+    if(query == "") {
+        query = "No filter selected";
+    }
+    console.log(query);
     $('#currentInput').text(query); 
 }
 
 function FilterChanged() {
     var filterString = "";
+    var publicationDate = [];
     
     $('.display-filter').each(function(i, obj) {
         var filterName = $(this).find('.filter-name');
         var filterForm = $(this).find('.filter-form');
         var selectedFilters = [];
-        filterForm.find(':input').each(function() {
-            if($(this).prop('checked')) {
-                selectedFilters.push($(this).val());
-            }
+        filterForm.each(function() {
+            $(this).find(':input').each(function() {
+                if($(this).prop('checked')) {
+                    selectedFilters.push($(this).val());
+                } else if ($(this).attr('type') == 'text') {
+                    if($(this).val() != "") publicationDate.push($(this).val());
+                }
+            });
         })
         // There are selected checkboxes
-        if(selectedFilters != "") {
+        if(selectedFilters.length != 0) {
             $('.delete-filter').show();
-            filterString += selectedFilters.join(', ')+ ", ";   
+            filterString += selectedFilters.join(', ');
         }
     })
-                              
+    if (filterString != "") filterString += ", ";
+    filterString += publicationDate.join(" - ");
+    if(filterString == "" ) { 
+        filterString = "Nothing selected yet";
+        $('.delete-filter').hide();
+    }
     $('#filterInput').html(filterString);
 }
 
 
 function unsetAllCheckboxes() {
     $('input[type=checkbox]').prop('checked',false);
+    $('.year-input-from').val("");
+    $('.year-input-to').val("");
     $('.delete-filter').hide();
     $('#filterInput').html("Nothing selected yet");
     FilterChanged();
