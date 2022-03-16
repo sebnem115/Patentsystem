@@ -1,0 +1,272 @@
+/*Code redundant! --> bedeutet, dass er aus irgendeinem Grund an der markierten Stelle überflüssig ist und nicht aufgerufen wird/ werden kann */
+
+body {
+  padding: 16px;
+}
+
+#linkToSearch {
+color: var(--white);
+padding: 8px;
+text-decoration: none;
+}
+
+
+
+#header-container{
+  position: fixed;
+  width: 100%;
+  background-color: var(--white);
+  z-index: 10;
+  top: 0;
+  box-shadow: 2px 2px 2px var(--shadow);  
+} 
+.button-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+  }
+/******************** HEADER END ********************/
+#showResultNumb {
+  margin-left: 30%;
+}
+
+.result-container {
+  background-color: var(--white);
+  /*display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start; */
+  align-content: center;
+  gap: 10px;
+  min-height: 1000px;
+  margin-bottom: 3%;
+}
+
+.result-options-container {
+  background-color: var(--grey);
+  align-self: flex-end;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.result-display-container {
+  background-color: var(--grey);
+  align-self: flex-end;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 10px;
+  overflow-x: hidden; /*Code redundant!*/
+}
+
+.results-table th, td {
+  padding: 15px;
+  text-align: left;
+}
+
+th:not(:last-child), td:not(:last-child) { 
+  border-right: 1px solid var(--shadow); 
+}
+
+.results-table {
+  border-collapse: separate;
+  border-spacing: 0px 10px;
+  /* für responsive Größe der Spalten, auch bei Ausblenden einzelner*/
+  width: 100%;
+  table-layout: auto;
+}
+
+thead tr:first-child {
+  background-color: grey;
+}
+
+table tr {
+  background-color: var(--white); /*Code redundant!*/
+}
+
+.dropdown-container {
+  margin-left: 20%;
+}
+
+select {
+  -webkit-appearance: menulist-button;
+}
+
+#colRelHead {
+  width: 25px;
+  word-wrap: break-word;
+}
+
+#colSelHead {
+  width: 25px;
+}
+
+.resultTableDrawing {
+  max-width: 80px;
+}
+
+
+/* --------------- MODAL ---------------- */
+
+/* Modal Content/Box */
+#largeImgContent {
+  background-color: var(--white);
+  margin: 15px; /* 15% from the top and centered */
+  margin-top: 85px; /*notwendig, damit das Bild unter dem header ist*/
+  border: 1px solid var(--lightblue);
+  width: 50%; /* Could be more or less, depending on screen size */
+  float: right;
+}
+
+/* The Close Button */
+#largeImgClose {
+  margin-top: 85px; /*notwendig, damit das X unter dem header ist*/
+  padding: 5px;
+  color:var(--white);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#largeImgClose:hover,
+#largeImgClose:focus {
+  color: var(--lightblue);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#jumpUp{
+  float: right;
+  margin: 3%;
+  color: var(--textcolor);
+}
+
+
+@media screen and (max-width: 1500px) {
+  #sidebarTotal {
+      width: 1200px;   
+  }
+}
+
+#sidebarTotal{
+  margin-top: 100px;
+}
+
+#sidebarH3 {
+  text-align: center;
+}
+
+/* Style Buttons Farben Stand 25.01.2022 */
+.sidebarButton, #toggleButtonHide {
+  box-sizing: border-box;
+  background: var(--white); /*Code in .sidebarButton redundant!*/
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 17px;
+  display: flex;
+  /*Methode um den Inhalt der Buttons vertikal und horizontal zu zentrieren*/
+  justify-content: center;
+  align-items: center;
+  border: none;
+  box-shadow: 2px 2px 5px var(--shadow);
+}
+#toggleButtonHide:hover{
+    background-color: var(--buttonhover)
+}
+/* siehe aktuelle Farben der Wireframe-Gruppe Stand 25.01.22*/
+.sidebarButton{
+  background: #ABB1CF, 50%;
+}
+
+#filter1 {
+  float: left;
+  width: 11%;
+  /*min-width: 195px; 
+  max-width: 230px; */
+  padding-top: 1px;
+  margin-right: 10px;
+  padding: 0.5%;
+  padding-bottom: 80px;
+  background-color:var(--grey);
+  font-family: 'Roboto', sans-serif; /*Code redundant!*/
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.wrapper{
+  position: relative;
+  padding-right: 1%;
+  margin-bottom: 50px;
+}
+.graph{
+  border-style: solid;
+  border-color: var(--buttongrey);
+  border-width: thin;
+  width: 98%;
+}
+
+.sliderContainer{
+  position: relative;
+  margin-bottom: 2%;   
+}
+
+input[type="range"]{
+  -webkit-appearance: none;     /*Code redundant!*/
+  -moz-appearance: none;       /*Code redundant!*/
+  appearance: none;
+  width: 99%;
+  outline: none;
+  position: absolute;
+  margin: auto;
+  background-color: var(--darkblue);
+  pointer-events: none;
+}
+
+/*Range Linie unterhalb des Graphen*/
+input[type="range"]::-webkit-slider-runnable-track{
+  -webkit-appearance: none;
+  /* Dicke der Linie*/
+  height: 4px;
+}
+
+input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  pointer-events: auto; /* ohne würden die Slider nicht bewegbar sein*/
+  margin-top: -10px;
+  cursor: pointer;
+  /* für die dreieckige Form der Slider */
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 18px solid var(--darkblue);
+}
+
+/* Größe der Input Felder from to*/
+input[type="number"]{
+  width: 87px;
+}
+
+#submitYear{
+  float: right;
+}
+
+#resetOptions{
+  margin: auto;
+}
+
+/* siehe aktuelle Farben der Wireframe-Gruppe Stand 25.01.22*/
+.resetOptions:hover {
+  background-color: #455463;
+}
+

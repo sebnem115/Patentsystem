@@ -1,0 +1,518 @@
+/*****************************
+*****************************
+*****//*ELEM SECTION*//*****
+*****************************
+*****************************/
+
+*{
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body{
+  z-index: 0;
+  background-color: var(--grey);  
+}
+body.show{
+  overflow: hidden;
+}
+p {
+  color: var(--textcolor);
+}
+
+
+h1 {
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-style: bold;
+  padding-bottom: 1em;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 33px;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    outline: none;
+    box-shadow: 2px 2px 5px #000;  
+}
+
+input {
+  padding: 5px;
+  text-align: center;
+}
+
+/*****************************
+*****************************
+*****//*HEADER SECTION*//*****
+*****************************
+*****************************/
+
+#header h1{
+  padding-bottom: 0px!important;
+  width: 300px;
+  font-size: 27px;  
+}
+
+#linkToResults {
+  color: var(--white);
+  padding: 6px;
+}
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+/*ALTER CODE
+#header_left_content {
+  width: 82.2%;
+  display: flex;
+  column-gap: 2em;
+
+}
+
+#header_right_content {
+  display: flex;
+  column-gap: 2em;
+  align-items: center;
+}
+#homebutton-link {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 22px;
+  font-family: 'Roboto';
+}
+*/
+
+
+#header_left_content p {
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 20px;
+}
+.hdrbtn {
+  width: 100px;
+}
+
+#bookmark {
+  cursor: pointer;
+  box-sizing: border-box;
+  background-image: url( images/bookmark_uncheck.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-color: var(--white);
+  box-shadow: none;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 40px;
+  height: 40px;
+  transition: 0.3s all ease;
+}
+
+#bookmark:hover{
+  transform: scale(1.1);
+  transition: 0.3s all ease;
+}
+
+#bookmark.check{
+ background-image: url( images/bookmark_check.png);
+ transition: 0.5s all ease;
+ transform: scale(1.2);
+}
+
+/************************ Section Header ********************/
+#header-container{
+  position: fixed;
+  background-color: var(--white);  
+  width: 100%;
+  z-index: 10;
+  top: 0;  
+}
+.sectionHeader{
+  border-top: 2px solid var(--grey);  
+  padding: 1em 0;
+  background-color: var(--white);
+  display: flex;
+  box-shadow: 2px 2px 2px var(--shadow);  
+}
+.margin-sectionHeader{
+  display: flex;
+  justify-content: space-evenly;
+  height: 3em;
+  line-height: 3em;
+  margin: auto;
+  transition: 0.5s all ease;
+    
+}
+/* NOT USED
+.expander{
+  display: none;
+  width: 50px;
+  transition: 0.4s all ease;
+  background-image: url("images/down.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 80% 80%;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: 2px 2px 5px var(--shadow);  
+  transform: scale(0.8);
+  cursor: pointer;
+  left: 220px;
+  position: absolute;
+  top: 20px;
+  height: 40px;
+}
+
+.expander:hover, #dwnldDrpdwn:hover{
+  transform: scale(1.0);
+  background-color: var(--darkblue);
+  background-image: url("images/down_white.svg");
+}
+*/
+.sectionHeader a{
+    color: var(--textcolor);
+}
+.sectionHeader a:hover{
+  color: var(--white);
+  background-color: var(--darkblue);
+}
+
+a {
+  font-family: 'Roboto', sans-serif;
+}
+
+a:link, a:visited, a:active{
+  text-decoration: none;
+  font-weight: 700;  
+}
+
+.nav-link{
+  padding: 0 1em;
+  margin: 0 1em;
+  border-radius: 12px;
+  background-color: var(--white);
+  transition: 0.4s all ease;
+  box-shadow: 2px 2px 5px var(--shadow);  
+}
+
+a.active{
+  color: #fff;
+}
+
+a.nav-link.active:hover, .dwnldBtn:hover{
+  padding: 0 4em;
+  margin: 0;
+}
+
+section{
+  border-bottom: 1px solid black;
+  max-width: 80%;
+  padding-left: 5%;
+  padding-right: 5%;
+  background-color: var(--white);
+  margin: auto;
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+
+#patent_family {
+  min-height: 100vh;
+}
+
+#bibliographic_data{
+  margin-top: 17vh;
+    
+}
+
+#bibliographic_data, #description, #claims, #drawing, #download, #citations, #legal_events, #patent_family{
+  scroll-margin-top: 170px;
+}
+
+a.active[href="#bibliographic_data"], a.active[href="#patent_family"], a.active[href="#legal_events"], a.active[href="#description"], a.active[href="#claims"], a.active[href="#drawing"], a.active[href="#download"], a.active[href="#citations"]{
+  background-color: var(--darkblue);
+}
+
+
+/*****************************
+*****************************
+*****//*CONTENT SECTION*//*****
+*****************************
+*****************************/
+
+
+.bibliographic_data_container {
+}
+
+.bibliographic_data{
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  padding-bottom: 5px;
+}
+
+.bibliographic_data .left{
+  width: 38.2%;
+  display: flex;
+  align-items: stretch;
+  line-height: 1.42857;
+}
+
+.bibliographic_data .right{
+  width: 61.8%;
+  padding-left: 50px;
+}
+
+.bibliographic_data .left .left_content{
+  width: 38.2%; 
+}
+
+.bibliographic_data .left .right_content{
+  width: 61.8%;
+}
+
+#description{
+}
+
+.description{
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+  width: 100%;
+}
+
+.description .left{
+  height: 100%;
+  width: 61.8%;
+  overflow: scroll;
+  padding-right: 2em;
+}
+
+.description .left .padder{
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.description .right{
+  width: 38.2%;
+
+}
+
+.description .right .top{
+  height: 100%;
+  width: 100%;
+  background-image: url(images/1.png);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+}
+
+.claims {
+}
+
+.drawing {
+  z-index: 1;
+}
+
+.drawings {
+  width: 100%;
+}
+
+.row1, .row2, .row3 {
+  width: 100%;
+  display: flex;
+  column-gap: 1%;
+  margin-top: 1%;
+  justify-content: space-between;
+}
+
+.first:hover, .second:hover, .third:hover , .four:hover{
+  box-shadow: 2px 2px 5px var(--shadow);  
+}
+
+.tooltiptext {
+  display: table;
+  top: -15px;
+  visibility: invisible;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 12px;
+  padding: 5px 5px;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.8s;
+  position: absolute;
+  width: 100%;
+}
+
+#img{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.tooltiptext::after {
+  content: "";
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.first:hover .tooltiptext, .second:hover .tooltiptext, .third:hover .tooltiptext, .four:hover .tooltiptext  {
+  visibility: visible;
+  opacity: 1;
+}
+
+.drawings .first, .drawings .second, .drawings  .third, .drawings  .four{
+  position: relative;
+  cursor: pointer;
+  height: 400px;
+  width: 25%;
+}
+
+#download .downloadArea .dwnldInpt {
+  font-size: 22px;
+}
+
+.downloadArea{
+}
+
+#dwnldDrpdwn {
+  width: 40px;
+  background-image: url("images/down.svg");
+  background-repeat: no-repeat;
+  transition: 0.4s all ease;
+  background-position: center;
+  background-size: 80% 80%;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: 2px 2px 5px var(--shadow);  
+  transform: scale(0.8);
+  cursor: pointer;
+  height: 30px;
+  margin-left: 25px;
+}
+
+.margin {
+  margin: auto;
+  display: flex;
+}
+
+.slctr{
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 25px;
+}
+
+#show{
+  margin-left: 25px;
+}
+
+.dwnldBtn {
+  padding: 0 1em;
+  border-radius: 12px;
+  background-color: var(--white);
+  transition: 0.4s all ease;
+  box-shadow: 2px 2px 5px var(--shadow);  
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+}
+
+.slctDrwngs {
+  padding: 50px;
+}
+
+.slctDrwngs .row1, .slctDrwngs .row2, .slctDrwngs .row3 {
+  padding-bottom: 50px;
+  column-gap: 5%;
+}
+
+.first, .second, .third, .four {
+  position: relative;
+}
+.slctDrwngs .first:hover,
+.slctDrwngs .second:hover,
+.slctDrwngs .third:hover,
+.slctDrwngs .four:hover {
+  transform: scale(1.2);
+}
+
+#slctImg {
+  position: absolute;
+  bottom: 0px;
+  right: 0;
+  height: 30px;
+  width: 30px;
+}
+
+.citations, .legal_events, .patent_family {
+}
+
+.legal_th {
+  padding: 37.5px!important;
+  text-align: left; 
+}
+
+
+.list_hover:hover{
+  box-shadow: 2px 2px 5px var(--shadow);  
+  background-color: var(--basis);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.pat-cit, .non-pat-cit{ 
+   margin: auto;
+}
+
+.non-pat-cit {
+  padding-top: 50px;
+}
+
+p{
+    font-size: 18px;
+}
+
+
+td {
+  padding: 15px;
+  border-bottom: 1px solid black;
+  text-align: center; 
+}
+
+thead{
+    font-weight: bold;
+    font-size: 22px;
+    white-space:nowrap;
+    background-color: var(--basis);
+}
+
+thead th{
+    padding: 20px;
+}
+
+tbody tr:hover{
+  box-shadow: 2px 2px 5px var(--shadow); 
+}
+
+
+#pat-cit thead tr>:nth-child(5), #pat-cit thead tr>:nth-child(4), #pat-cit thead tr>:nth-child(1), 
+#non-pat-cit thead tr>:nth-child(4), #non-pat-cit thead tr>:nth-child(1){
+    cursor: pointer;
+}
