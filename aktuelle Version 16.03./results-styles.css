@@ -1,0 +1,446 @@
+/*Code redundant! --> bedeutet, dass er aus irgendeinem Grund an der markierten Stelle überflüssig ist und nicht aufgerufen wird/ werden kann */
+
+body {
+  padding: 16px;
+}
+
+.dropbtn {
+  background-color: var(--darkblue);
+  color: var(--white);
+  padding: 6px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  border-radius: 16px;
+  width: 175px;
+  height: 40px;
+}
+
+.backbtn:hover {
+transform: scale(1.2);
+transition: 0.5s all ease;
+background-color: var(--mediumblue);
+}
+
+
+#linkToSearch {
+color: var(--white);
+padding: 8px;
+text-decoration: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: var(--darkblue);
+  opacity: 100%;
+  box-shadow: 0px 4px 4px var(--shadow);
+  border-radius: 12px;
+  min-width: 100%;
+}
+
+.register-form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.register-form {
+  position: absolute;
+  background: var(--darkblue);
+  opacity: 100%;
+  border-radius: 12px;
+  min-width: 100%;  /*Code redundant!*/
+  min-width: 200px;
+  color: var(--white);
+  width: 400px; 
+  padding: 40px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: flex-start;
+  row-gap: 45px;
+}
+
+.register-label {
+  flex-grow: 1;
+  flex-basis: 29%
+}
+
+.register-textfield {
+  flex-grow: 2;
+  flex-basis: 70%;
+  border-radius: 16px;
+  border: none;
+  height: 27px;
+}
+
+.login-mask {
+  right: 0px;
+  min-width: 200px;
+  padding: 22px;
+  color: var(--white);
+}
+
+.dropdown-content a {
+  color: var(--white);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.hide-dropdown {
+  display: none;
+}
+
+.header-btn {
+  margin-top: 5px;
+  border-radius: 16px;
+  background-color: var(--darkerblue);
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  color: white;
+}
+
+.header-btn:hover {
+  background-color: var(--mediumblue);
+}
+
+
+.dropdown-content a:hover {
+  background-color: var(--mediumblue);
+  border-radius: 12px;
+  
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: var(--mediumblue);
+}
+
+.login-textfield {
+  width: 100%;
+  border-radius: 16px;
+  border: none;
+}
+
+.user-profile-settings-container label  {
+  display: block;
+  width: 90%;
+}
+
+.user-profile-settings-container span {
+  font-size: 12px;
+  display: block;
+  margin-left: -10px;
+}
+
+
+.user-profile-settings-checkbox-container {
+  display: block ruby;
+}
+
+#header-container{
+  position: fixed;
+  width: 100%;
+  background-color: var(--white);
+  z-index: 10;
+  top: 0;
+  box-shadow: 2px 2px 2px var(--shadow);  
+} 
+.button-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+  }
+/******************** HEADER END ********************/
+#showResultNumb {
+  margin-left: 30%;
+}
+
+.result-container {
+  background-color: var(--white);
+  /*display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start; */
+  align-content: center;
+  gap: 10px;
+  min-height: 1000px;
+  margin-bottom: 3%;
+}
+
+.result-options-container {
+  background-color: var(--grey);
+  align-self: flex-end;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.result-display-container {
+  background-color: var(--grey);
+  align-self: flex-end;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 10px;
+  overflow-x: hidden; /*Code redundant!*/
+}
+
+.results-table th, td {
+  padding: 15px;
+  text-align: left;
+}
+
+th:not(:last-child), td:not(:last-child) { 
+  border-right: 1px solid var(--shadow); 
+}
+
+.results-table {
+  border-collapse: separate;
+  border-spacing: 0px 10px;
+  /* für responsive Größe der Spalten, auch bei Ausblenden einzelner*/
+  width: 100%;
+  table-layout: auto;
+}
+
+thead tr:first-child {
+  background-color: grey;
+}
+
+table tr {
+  background-color: var(--white); /*Code redundant!*/
+}
+
+.dropdown-container {
+  margin-left: 20%;
+}
+
+select {
+  -webkit-appearance: menulist-button;
+}
+
+#colRelHead {
+  width: 25px;
+  word-wrap: break-word;
+}
+
+#colSelHead {
+  width: 25px;
+}
+
+.resultTableDrawing {
+  max-width: 80px;
+}
+
+
+/* --------------- MODAL ---------------- */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */                      /*Code redundant!*/
+  background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+}
+#register-modal {
+  padding-top: 100px; /* Location of the box */
+}
+
+/* Modal Content/Box */
+#largeImgContent {
+  background-color: var(--white);
+  margin: 15px; /* 15% from the top and centered */
+  margin-top: 85px; /*notwendig, damit das Bild unter dem header ist*/
+  border: 1px solid var(--lightblue);
+  width: 50%; /* Could be more or less, depending on screen size */
+  float: right;
+}
+
+/* The Close Button */
+#largeImgClose {
+  margin-top: 85px; /*notwendig, damit das X unter dem header ist*/
+  padding: 5px;
+  color:var(--white);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#largeImgClose:hover,
+#largeImgClose:focus {
+  color: var(--lightblue);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.show {
+  display: block;
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover, .close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+#jumpUp{
+  float: right;
+  margin: 3%;
+  color: var(--textcolor);
+}
+
+
+@media screen and (max-width: 1500px) {
+  #sidebarTotal {
+      width: 1200px;   
+  }
+}
+
+#sidebarTotal{
+  margin-top: 100px;
+}
+
+#sidebarH3 {
+  text-align: center;
+}
+
+/* Style Buttons Farben Stand 25.01.2022 */
+.sidebarButton, #toggleButtonHide {
+  box-sizing: border-box;
+  background: var(--white); /*Code in .sidebarButton redundant!*/
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 17px;
+  display: flex;
+  /*Methode um den Inhalt der Buttons vertikal und horizontal zu zentrieren*/
+  justify-content: center;
+  align-items: center;
+  border: none;
+  box-shadow: 2px 2px 5px var(--shadow);
+}
+#toggleButtonHide:hover{
+    background-color: var(--buttonhover)
+}
+/* siehe aktuelle Farben der Wireframe-Gruppe Stand 25.01.22*/
+.sidebarButton{
+  background: #ABB1CF, 50%;
+}
+
+#filter1 {
+  float: left;
+  width: 11%;
+  /*min-width: 195px; 
+  max-width: 230px; */
+  padding-top: 1px;
+  margin-right: 10px;
+  padding: 0.5%;
+  padding-bottom: 80px;
+  background-color:var(--grey);
+  font-family: 'Roboto', sans-serif; /*Code redundant!*/
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.wrapper{
+  position: relative;
+  padding-right: 1%;
+  margin-bottom: 50px;
+}
+.graph{
+  border-style: solid;
+  border-color: var(--buttongrey);
+  border-width: thin;
+  width: 98%;
+}
+
+.sliderContainer{
+  position: relative;
+  margin-bottom: 2%;   
+}
+
+input[type="range"]{
+  -webkit-appearance: none;     /*Code redundant!*/
+  -moz-appearance: none;       /*Code redundant!*/
+  appearance: none;
+  width: 99%;
+  outline: none;
+  position: absolute;
+  margin: auto;
+  background-color: var(--darkblue);
+  pointer-events: none;
+}
+
+/*Range Linie unterhalb des Graphen*/
+input[type="range"]::-webkit-slider-runnable-track{
+  -webkit-appearance: none;
+  /* Dicke der Linie*/
+  height: 4px;
+}
+
+input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  pointer-events: auto; /* ohne würden die Slider nicht bewegbar sein*/
+  margin-top: -10px;
+  cursor: pointer;
+  /* für die dreieckige Form der Slider */
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 18px solid var(--darkblue);
+}
+
+/* Größe der Input Felder from to*/
+input[type="number"]{
+  width: 87px;
+}
+
+#submitYear{
+  float: right;
+}
+
+#resetOptions{
+  margin: auto;
+}
+
+/* siehe aktuelle Farben der Wireframe-Gruppe Stand 25.01.22*/
+.resetOptions:hover {
+  background-color: #455463;
+}
+
